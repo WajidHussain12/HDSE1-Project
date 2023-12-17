@@ -1,0 +1,178 @@
+<!--  Body Wrapper Start -->
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+  data-sidebar-position="fixed" data-header-position="fixed">
+
+  <!--  Sidebar component start -->
+  <app-sidebar></app-sidebar>
+  <!--  Sidebar component End-->
+
+  <!--  Main wrapper -->
+  <div class="body-wrapper">
+
+    <!--  Header Component Start -->
+    <app-nav></app-nav>
+    <!--  Header Component End -->  
+    <div class="container-fluid">
+
+
+      <form [formGroup]="userForm" (ngSubmit)="save()">
+        <div class="" style="box-shadow: 1px 1px 30px 1px rgba(0, 0, 0, 0.463);padding: 15px; border-radius: 10px;">
+
+          <div class="mb-4">
+            <h1 style="border-radius: 8px; font-weight: bold;">Add User</h1>
+          </div>
+          <div class="d-flex">
+
+            <div class="" style="width: 50%; padding: 10px;">
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">First Name</label>
+                <input type="text" class="form-control" placeholder="First Name" formControlName="firstName">
+                <div *ngIf="userForm.get('firstName')?.invalid && (userForm.get('firstName')?.dirty || userForm.get('firstName')?.touched)">
+                  <div *ngIf="userForm.get('firstName')?.hasError('required')" style="color: red;">First Name Required</div>
+                  <div *ngIf="userForm.get('firstName')?.hasError('minlength')" style="color: red;">First Name must be at least 2 characters</div>
+                  <div *ngIf="userForm.get('firstName')?.hasError('maxlength')" style="color: red;">Maximum length exceeded (max 30 characters)</div>
+                  <div *ngIf="userForm.get('firstName')?.hasError('pattern')" style="color: red;">Please enter only letters and spaces.</div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Last Name</label>
+                <input type="text" class="form-control" placeholder="Last Name" formControlName="lastName">
+                <div *ngIf="userForm.get('lastName')?.invalid && (userForm.get('lastName')?.dirty || userForm.get('lastName')?.touched)">
+                  <div *ngIf="userForm.get('lastName')?.hasError('required')" style="color: red;">Last Name Required</div>
+                  <div *ngIf="userForm.get('lastName')?.hasError('minlength')" style="color: red;">Last Name must be at least 2 characters</div>
+                  <div *ngIf="userForm.get('lastName')?.hasError('maxlength')" style="color: red;">Maximum length exceeded (max 30 characters)</div>
+                  <div *ngIf="userForm.get('lastName')?.hasError('pattern')" style="color: red;">Please enter only letters and spaces.</div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">User Name</label>
+                <input type="text" class="form-control" placeholder="User Name" formControlName="userName">
+
+                <div *ngIf="userForm.get('userName')?.invalid && (userForm.get('userName')?.dirty || userForm.get('userName')?.touched)">
+                  <div *ngIf="userForm.get('userName')?.hasError('required')" style="color: red;">User Name Required</div>
+                  <div *ngIf="userForm.get('userName')?.hasError('minlength')" style="color: red;">User Name must be at least 4 characters</div>
+                  <div *ngIf="userForm.get('userName')?.hasError('maxlength')" style="color: red;">Maximum length exceeded (max 20 characters)</div>
+                  <div *ngIf="userForm.get('userName')?.hasError('pattern')" style="color: red;">Please enter only letters and numbers Spaces and Special Character not Allowed</div>
+                </div>
+
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Email address</label>
+                <input type="email" class="form-control" placeholder="Email Address" formControlName="email">
+
+                  <div *ngIf="userForm.get('email')?.invalid && (userForm.get('email')?.dirty || userForm.get('email')?.touched)">
+                  <div *ngIf="userForm.get('email')?.hasError('required')" style="color: red;">Email Required</div>
+                  <div *ngIf="userForm.get('email')?.hasError('email')" style="color: red;">Please enter a valid email address</div>
+                  <div *ngIf="userForm.get('email')?.hasError('minlength')" style="color: red;">Email must be at least 13 characters</div>
+                  <div *ngIf="userForm.get('email')?.hasError('maxlength')" style="color: red;">Maximum length exceeded (max 40 characters)</div>
+                  <div *ngIf="userForm.get('email')?.hasError('pattern')" style="color: red;">Please enter a valid email address in the correct format.
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="mb-3">
+                <div class="form-group">
+                  <label class="control-label" for="password">Password</label>
+                  <input type="password" id="password" class="form-control" placeholder="Password"
+                    formControlName="password">
+                  <i class="toggle-password fa fa-fw fa-eye-slash"></i>
+                </div>
+                <div
+                  *ngIf="userForm.get('password')?.invalid && (userForm.get('password')?.dirty || userForm.get('password')?.touched)">
+                  <div *ngIf="userForm.get('password')?.hasError('required')" style="color: red;">
+                    Password Required
+                  </div>
+                  <div *ngIf="userForm.get('password')?.hasError('minlength')" style="color: red;">
+                    Please enter a valid Password. Minimum length is 8 characters.
+                  </div>
+                  <div *ngIf="userForm.get('password')?.hasError('pattern')" style="color: red;">
+                    Please use letters (uppercase or lowercase), numbers, and special characters in your password.
+                  </div>
+                  <div *ngIf="userForm.get('password')?.hasError('maxlength')" style="color: red;">Maximum length exceeded (max 25 characters)</div>
+                </div>
+              </div>
+
+
+            </div>
+
+
+            <div class="" style="width: 50%; padding: 10px;">
+
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Contact Number</label>
+                <div class="input-group">
+                  <span class="input-group-text">+92</span>
+                  <input type="number" inputmode="numeric" class="form-control" placeholder="Contact Number"
+                    formControlName="contact" pattern="\d{10}" (input)="onInputChange($event)">
+                </div>
+                <div
+                  *ngIf="userForm.get('contact')?.invalid && (userForm.get('contact')?.dirty || userForm.get('contact')?.touched)">
+                  <div *ngIf="userForm.get('contact')?.hasError('required')" style="color: red;">
+                    Contact Number Required
+                  </div>
+                  <div *ngIf="userForm.get('contact')?.hasError('pattern')" style="color: red;">
+                    Please enter a valid 10-digit number
+                  </div>
+                </div>
+              </div>
+
+
+
+              <div class="mb-3">
+                <label class="form-label">Address</label>
+                <input type="text" class="form-control" placeholder="Address" formControlName="address">
+                <div
+                  *ngIf="userForm.get('address')?.invalid && (userForm.get('address')?.dirty || userForm.get('address')?.touched)">
+                  <div *ngIf="userForm.get('address')?.hasError('required')" style="color: red;">
+                    Address Required
+                  </div>
+                  <div *ngIf="userForm.get('address')?.hasError('minlength')" style="color: red;">
+                    Address Minimum length is 5 characters.
+                  </div>
+                  <div *ngIf="userForm.get('address')?.hasError('maxlength')" style="color: red;">
+                    Address Maximum length exceeded
+                  </div>
+                </div>
+              </div>
+
+              <label class="form-label" style="margin-top: 15px;">Gender</label>
+              <div class="d-flex">
+
+                <div class="form-check" style="margin-right: 20px;">
+                  <input class="form-check-input custom-red-checkbox" type="radio" name="flexRadioDefault"
+                    id="flexRadioDefault1" value="Male" (click)="gender('Male')">
+                  <label class="form-check-label" for="flexRadioDefault1">
+                    Male
+                  </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input custom-red-checkbox" type="radio" name="flexRadioDefault"
+                    id="flexRadioDefault2" (click)="gender('Female')">
+                  <label class="form-check-label" for="flexRadioDefault2">
+                    Female
+                  </label>
+                </div>
+              </div>
+
+              <div class="mb-3 mt-4">
+
+                <button type="submit" class="btn btn-primary" [disabled]="userForm.invalid">Submit</button>
+              </div>
+
+
+            </div>
+          </div>
+
+        </div>
+
+
+      </form>
+
+    </div>
+  </div>
+</div>
+<!--  Body Wrapper End -->

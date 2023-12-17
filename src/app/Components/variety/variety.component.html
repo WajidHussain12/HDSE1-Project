@@ -1,0 +1,50 @@
+<app-header></app-header>
+<div class="text-center">
+  <img [src]='varietybannerImage' alt="Image" width="100%" [style.height.px]="400">
+</div>
+
+
+
+<!-- product.component.html -->
+<div class="container">
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
+    <div *ngFor="let Variety of varietyAllData" class="card my-5"
+      style="width: 18rem; border-radius: 0px 0px 10px 10px">
+      <ng-container *ngIf="Variety.File && Variety.File.FileData">
+        <img [src]="Variety.File.FileData" class="card-img-top" alt="..." [style.height.px]="304" />
+      </ng-container>
+      <!-- <img [src]="Variety.varietyImg" class="card-img-top" alt="{{ Variety.image }}"> -->
+      <div class="card-body">
+        <h5 class="card-title"
+          style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; font-weight: bold">
+          {{ Variety.varietyName }}
+        </h5>
+        <hr>
+        <div>
+          <p style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+            <i class="bi bi-alarm-fill"></i>&nbsp;Average Delivery Time :&nbsp;<span class="fw-bold">{{
+              Variety.deliveryTime }}</span>
+          </p>
+          <p style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+            <i class="bi bi-truck"></i>&nbsp;Cash on delivery :&nbsp;<span class="fw-bold">{{ Variety.cashOnDelivery ?
+              'Available' : 'Not Available' }}</span>
+          </p>
+          <p style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+            <i class="bi bi-cash"></i>&nbsp;Price :&nbsp;<span class="fw-bold">{{ Variety.price }} Rs</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- your-component.component.html -->
+      <div class="card-body text-center" style="border-top: 1px solid rgb(170, 170, 170);">
+        <a  class="btn btn-warning mx-2 py-1 px-2" style="font-size: 15px;"
+        (click)="addToCart(Variety)">Add to cart</a>
+      </div>
+      <!-- <ng-template #loginModal>
+        <a (click)="openLoginModal()"  class="btn btn-warning mx-2 py-1 px-2" style="font-size: 15px;">Add to cart</a>
+      </ng-template> -->
+
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

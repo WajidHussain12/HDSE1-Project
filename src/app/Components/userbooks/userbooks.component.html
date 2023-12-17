@@ -1,0 +1,28 @@
+
+<app-header></app-header>
+<h1 class="text-center" style="padding-top: 10vh;">BOOKS</h1>
+
+<div class="container" style="padding-top: 4vh; display: flex; flex-wrap: wrap; justify-content: space-around">
+
+  <div *ngFor="let book of books" class="card mb-3" style="width: 20%; margin: 10px;">
+    <div>
+      <ng-container *ngIf="book.File && book.File.FileData">
+        <img [src]="book.File.FileData" class="card-img-top" alt="..." [style.height.px]="" />
+      </ng-container>
+    </div>
+    <div class="card-body">
+      <input type="text" [value]="bookFile">
+      <h5 class="card-title">{{book.bookName}}</h5>
+      <p class="card-text">{{book.description}}</p>
+      <p class="card-text"> Status : {{book.status}}</p>
+      <p>Rating : <span>{{book.rating}}</span></p>
+      <p>Price : <span>{{book.price}}</span></p>
+      <input type="hidden" [value]="book.File">
+    </div>
+    <div class="text-center pb-4">
+      <button (click)="bookAddtoCart(book)" class="btn btn-warning py-1 px-2 fw-bold" style="font-size: 15px;">BUY NOW</button>
+    </div>
+  </div>
+
+</div>
+<app-footer></app-footer>

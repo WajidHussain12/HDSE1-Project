@@ -1,0 +1,54 @@
+<!--  Body Wrapper Start -->
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+  data-sidebar-position="fixed" data-header-position="fixed">
+
+  <!--  Sidebar component start -->
+  <app-sidebar></app-sidebar>
+  <!--  Sidebar component End-->
+
+  <!--  Main wrapper -->
+  <div class="body-wrapper">
+
+    <!--  Header Component Start -->
+    <app-nav></app-nav>
+    <!--  Header Component End -->
+    <div class="container-fluid">
+      <!-- Registered Users Table Start -->
+      <!-- Striped Rows -->
+      <div class="card">
+        <div class="" style="display: flex; justify-content: space-between">
+          <h5 class="card-header">IceCream Flavours</h5>
+
+        </div>
+        <div class="table-responsive text-nowrap">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Flavor ID</th>
+                <th>Flavor Name</th>
+                <th>Rating</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody class="table-border-bottom-0" *ngFor="let f of Flavour">
+              <tr>
+                <td>{{f.recipeid}}</td>
+                <td>{{f.flavorName}}</td>
+                <td>{{f.rating}}</td>
+                <td >
+                  <div class="badge badge-success" style="background-color: rgba(0, 128, 0, 0.659);">{{f.status}}</div>
+                  </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!--/ Striped Rows -->
+      <!-- Registered Users Table End -->
+
+
+    </div>
+  </div>
+</div>
+<!--  Body Wrapper End -->

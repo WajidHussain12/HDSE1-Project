@@ -1,0 +1,79 @@
+<!--  Body Wrapper Start -->
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+  data-sidebar-position="fixed" data-header-position="fixed">
+  <!--  Sidebar component start -->
+  <app-sidebar></app-sidebar>
+  <!--  Sidebar component End-->
+
+  <!--  Main wrapper -->
+  <div class="body-wrapper">
+    <!--  Header Component Start -->
+    <app-nav></app-nav>
+    <!--  Header Component End -->
+    <div class="container-fluid">
+      <!-- Registered Users Table Start -->
+      <!-- Striped Rows -->
+      <div class="card">
+        <h5 class="card-header">Orders</h5>
+        <div class="table-responsive text-nowrap">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Order ID</th>
+                <th>Customer ID</th>
+                <th>Customer Name</th>
+                <th>Order Date</th>
+                <th>Products</th>
+                <th>Total Amount</th>
+                <th>Shipping Adddress</th>
+                <th>Order Status</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let i of OrderData" class="table-border-bottom-0">
+              <tr>
+                <td class="text-center">{{i.orderid}}</td>
+                <td class="text-center">{{i.customer_ID}}</td>
+                <td class="text-center">{{i.custome_Name}}</td>
+                <td class="text-center">{{i.order_Date}}</td>
+                <td class="text-center">{{i.products}}</td>
+                <td class="text-center">{{i.total_Amount}}</td>
+                <td class="text-center">{{i.shipping_Adddress}}</td>
+                <div style="display: flex; justify-content: center; align-items: center;">
+                  <span style="margin-right: 5px; color: #810CA8;" class="material-symbols-outlined">running_with_errors</span>
+                  <td class="text-center">{{i.order_Status}}</td>
+                </div>
+                <td>
+                  <div class="dropdown">
+                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                      <i class="mdi mdi-dots-vertical"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                      <div class="dropCustom" style="display: flex; justify-content: center; align-items: center;">
+                        <span style="color: #2F58CD;" class="material-symbols-outlined">local_shipping</span>
+                        <a style="padding: 10px;">On The Way</a>
+                      </div>
+                      <div class="dropCustom" style="display: flex; justify-content: center; align-items: center;">
+                        <span style="color: green;" class="material-symbols-outlined">quick_reorder</span>
+                        <a style="padding: 10px;">Delivered</a>
+                      </div>
+                      <div class="dropCustom" style="display: flex; justify-content: center; align-items: center;">
+                        <span style="color: red;" class="material-symbols-outlined"><span class="material-symbols-outlined">
+                          cancel
+                          </span></span>
+                        <a style="padding: 10px;">Cancel</a>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!--/ Striped Rows -->
+      <!-- Registered Users Table End -->
+    </div>
+  </div>
+</div>
+<!--  Body Wrapper End -->

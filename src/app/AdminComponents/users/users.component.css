@@ -1,0 +1,9 @@
+/* @import "~bootstrap/dist/css/bootstrap.css"; */
+
+.customDeleteBtn{
+  background-color: rgba(255, 0, 0, 0.688);
+}
+
+.customDeleteBtn:hover{
+  background-color: rgb(255, 0, 0);
+}

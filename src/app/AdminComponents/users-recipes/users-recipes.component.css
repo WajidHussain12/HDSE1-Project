@@ -1,0 +1,28 @@
+.custom-red-checkbox {
+  color: red !important;
+  outline: red;
+  background-color: #00aaffa5
+}
+
+
+.custom-red-checkbox:hover {
+  text-shadow: 2px 2px 4px red;
+  outline: red;
+
+}
+
+
+
+.image-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.image-checkbox {
+  position: absolute;
+  left: 0;
+  top: 3%;
+  transform: translateY(-50%);
+  /* width: 20%; */
+}

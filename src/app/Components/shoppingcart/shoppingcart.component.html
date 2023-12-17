@@ -1,0 +1,118 @@
+<app-header></app-header>
+<div class="px-4 px-lg-0 cardbody">
+  <!-- For demo purpose -->
+  <div class="container text-white py-5 text-center">
+    <h1 class="display-4">Shopping Cart</h1>
+  </div>
+  <!-- End -->
+
+  <div class="pb-5">
+    <div class="container">
+
+      <div class="row">
+        <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
+
+          <!-- Shopping cart tab  le -->
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="p-2 px-3 text-uppercase">Product Image</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="p-2 px-3 text-uppercase">Product Name</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="py-2 text-uppercase">Quantity</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="py-2 text-uppercase">Price</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="py-2 text-uppercase">Items Total</div>
+                  </th>
+                  <th scope="col" class="border-0 bg-light">
+                    <div class="py-2 text-uppercase">Remove</div>
+                  </th>
+                </tr>
+              </thead>
+              <tbody *ngIf="userloggedin; else elseBlock">
+                <tr *ngFor="let item of sortedCartData">
+
+                  <input type="hidden" [(ngModel)]="item.bookid" name="bookid" />
+
+                  <td>
+                    <ng-container *ngIf="item.DecodedImageData">
+                      <img *ngIf="item.DecodedImageData" [src]="item.DecodedImageData" class="card-img-top"
+                        [style.height.px]="100" [style.width.px]="70" alt="Decoded Image">
+                    </ng-container>
+                  </td>
+
+                  <!-- <td>
+                      <img [src]="item.DecodedImageFile" alt="{{ item.ProductName }} Image" class="card-img-top"
+                        [style.height.px]="100" [style.width.px]="70" />
+                      {{ item.DecodedImageFile | json }}
+                    </td> -->
+
+
+
+
+                  <td class="border-0 align-middle text-uppercase" style="font-weight: bold;">{{item.ProductName }}</td>
+
+                  <td class="border-0 align-middle">
+                    <strong> <input type="number" [(ngModel)]="item.quantity" (change)="updateQuantity($event, item)"
+                        min="1" (keydown)="preventTyping($event)"></strong>
+                  </td>
+
+                  <td class="border-0 align-middle"><strong>${{ item.price }}</strong></td>
+                  <td class="border-0 align-middle"><strong>${{ item.price *item.quantity }}</strong></td>
+                  <td class="border-0 align-middle">
+                    <span class="material-symbols-outlined customdeleteicon" (click)="removeItem(item)">
+                      delete
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+
+              <ng-template #elseBlock>
+                <!-- Content to show when userid is falsy -->
+                <tbody>
+                  <!-- Your else content goes here -->
+                  <h2 class="text-center" style="font-weight: bolder;">Cart is Empty</h2>
+                </tbody>
+              </ng-template>
+
+
+            </table>
+          </div>
+          <!-- End -->
+        </div>
+      </div>
+
+      <div class="row py-5 p-4 bg-white rounded shadow-sm text-center">
+        <div class="col-lg-12">
+          <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Order summary </div>
+          <div class="p-4">
+            <p class="font-italic mb-4">Shipping and additional costs are calculated based on values you have entered.
+            </p>
+            <ul class="list-unstyled mb-4">
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Order Subtotal
+                </strong><strong>${{Total}}</strong></li>
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Shipping and
+                  handling</strong><strong>$10.00</strong></li>
+              <li class="d-flex justify-content-between py-3 border-bottom"><strong class="text-muted">Grand
+                  Total</strong>
+                <h5 class="font-weight-bold">${{grandTotal}}</h5>
+              </li>
+            </ul><a routerLink="/checkout/{{userid}}" class="btn btn-dark rounded-pill py-2 btn-block">Procceed to
+              checkout</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+<app-footer></app-footer>

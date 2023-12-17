@@ -1,0 +1,45 @@
+<app-header></app-header>
+<div class="container shadow-container" style="margin-top: 4rem; margin-bottom: 4rem; border-radius: 10px;">
+  <div style="width: 100%;">
+    <div>
+      <div class="">
+        <div style="flex-direction: row; border-radius: 10px; padding: 15px; padding-top: 0;">
+          <div *ngFor="let recipe of recipeGetedData">
+
+            <img [src]="recipeImageFile" width="100%" style="border-radius: 10px;" alt="" [style.height.px]="">
+
+            <h4 class="pt-4" style="border-top: 1px solid rgb(170, 170, 170);"> <i class="bi bi-clock-history"></i>
+              Cooking Time</h4>
+            <p class="pt-1 fw-bold">{{ recipe.cookingTime }}</p>
+            <h4 class="pt-3" style="border-top: 1px solid rgb(170, 170, 170);"> <i class="bi bi-lungs"></i> Calories
+            </h4>
+            <p class="pt-1 fw-bold">{{ recipe.calories }}</p>
+            <h4 class="pt-3" style="border-top: 1px solid rgb(170, 170, 170);"> <i class="bi bi-egg"></i> Ingredients
+            </h4>
+            <p class="pt-1 fw-bold">{{ recipe.ingredients }}</p>
+            <h4 class="pt-3"> <i class="bi bi-bar-chart-steps"></i> Instructions</h4>
+            <p class="pt-1 fw-bold" style="text-align: justify;">{{ recipe.instructions }}</p>
+            <hr>
+            <p class="pt-1 fw-bold">
+              <span
+                style="background-color: rgb(25, 156, 25); border-radius: 10px; padding: 0 5px 2px 5px; font-weight: bold; font-size: 13px;">
+                <i class="bi bi-star-fill"></i> Rating: {{ recipe.rating }}
+              </span>
+            </p>
+            <p class="pt-2 fw-bold">
+              Status: <span
+                style="background-color: goldenrod; border-radius: 10px; padding: 0 5px 2px 5px; font-weight: bold; font-size: 13px;">
+                {{ recipe.status }} <i class="bi bi-dot"></i>
+              </span>
+            </p>
+            <hr>
+            <div class="text-center">
+              <button routerLink="/login" class="btn btn-warning fw-bold">Share Your Recipe</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

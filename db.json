@@ -1,0 +1,545 @@
+{
+  "orders": [
+    {
+      "id": 1,
+      "Customer_ID": 1,
+      "Custome_Name": "Wajid Hussain",
+      "Order_Date": "Jan 1 2023",
+      "Products": "Mobile",
+      "Total_Amount": 20000,
+      "Shipping_Adddress": "Abc Street No 123",
+      "Order_Status": "InProcess"
+    },
+    {
+      "id": 2,
+      "Customer_ID": 2,
+      "Custome_Name": "Noman Hussain",
+      "Order_Date": "Jan 1 2023",
+      "Products": "Mobile",
+      "Total_Amount": 20000,
+      "Shipping_Adddress": "Abc Street No 123",
+      "Order_Status": "InProcess"
+    },
+    {
+      "id": 3,
+      "Customer_ID": 3,
+      "Custome_Name": "Kamran Khalid",
+      "Order_Date": "Jan 1 2023",
+      "Products": "Mobile",
+      "Total_Amount": 20000,
+      "Shipping_Adddress": "Abc Street No 123",
+      "Order_Status": "InProcess"
+    },
+    {
+      "id": 4,
+      "Customer_ID": 4,
+      "Custome_Name": "Yasir Shareef",
+      "Order_Date": "Jan 1 2023",
+      "Products": "Mobile",
+      "Total_Amount": 20000,
+      "Shipping_Adddress": "Abc Street No 123",
+      "Order_Status": "InProcess"
+    },
+    {
+      "id": 5,
+      "Customer_ID": 5,
+      "Custome_Name": "Abdul Razzaq",
+      "Order_Date": "Jan 1 2023",
+      "Products": "Mobile",
+      "Total_Amount": 20000,
+      "Shipping_Adddress": "Abc Street No 123",
+      "Order_Status": "InProcess"
+    },
+    {
+      "id": 6,
+      "Customer_ID": 6,
+      "Custome_Name": "Aijaz Yousuf",
+      "Order_Date": "Jan 1 2023",
+      "Products": "Mobile",
+      "Total_Amount": 20000,
+      "Shipping_Adddress": "Abc Street No 123",
+      "Order_Status": "InProcess"
+    },
+    {
+      "id": 7,
+      "Customer_ID": 7,
+      "Custome_Name": "Salman Khan",
+      "Order_Date": "Jan 1 2023",
+      "Products": "Mobile",
+      "Total_Amount": 20000,
+      "Shipping_Adddress": "Abc Street No 123",
+      "Order_Status": "InProcess"
+    },
+    {
+      "id": 8,
+      "Customer_ID": 8,
+      "Custome_Name": "Imran Khan",
+      "Order_Date": "Jan 1 2023",
+      "Products": "Mobile",
+      "Total_Amount": 20000,
+      "Shipping_Adddress": "Abc Street No 123",
+      "Order_Status": "InProcess"
+    },
+    {
+      "id": 9,
+      "Customer_ID": 9,
+      "Custome_Name": "Yousuf Kamal",
+      "Order_Date": "Jan 1 2023",
+      "Products": "Mobile",
+      "Total_Amount": 20000,
+      "Shipping_Adddress": "Abc Street No 123",
+      "Order_Status": "InProcess"
+    },
+    {
+      "id": 10,
+      "Customer_ID": 10,
+      "Custome_Name": "Touqeer Ahmed",
+      "Order_Date": "Jan 1 2023",
+      "Products": "Mobile",
+      "Total_Amount": 20000,
+      "Shipping_Adddress": "Abc Street No 123",
+      "Order_Status": "InProcess"
+    }
+  ],
+  "Users": [
+    {
+      "id": 1,
+      "firstName": "",
+      "lastName": "",
+      "UserName": "Wajid Hussain",
+      "Email": "Hussainwajid615@gmail.com",
+      "password": "user123",
+      "Gender": "Male",
+      "Contact": "+92317208755",
+      "Type": "user",
+      "Address": "Abc Street no 123",
+      "Status": "Active"
+    },
+    {
+      "id": 2,
+      "firstName": "",
+      "lastName": "",
+      "UserName": "Noman Hussain",
+      "Email": "Nomanhussain@gmail.com",
+      "password": "user123",
+      "Gender": "Male",
+      "Contact": "+92317208778",
+      "Type": "user",
+      "Address": "Abc Street no 123",
+      "Status": "Active"
+    },
+    {
+      "id": 3,
+      "firstName": "",
+      "lastName": "",
+      "UserName": "Kamran Khalid",
+      "Email": "Kamrankhalid@gmail.com",
+      "password": "user123",
+      "Gender": "Male",
+      "Contact": "+92317208735",
+      "Type": "user",
+      "Address": "Abc Street no 123",
+      "Status": "Active"
+    },
+    {
+      "id": 7,
+      "firstName": "",
+      "lastName": "",
+      "UserName": "Salman Khan",
+      "Email": "Salmankhan@gmail.com",
+      "password": "user123",
+      "Gender": "Male",
+      "Contact": "+923125648955",
+      "Type": "user",
+      "Address": "Abc Street no 123",
+      "Status": "Active"
+    },
+    {
+      "firstName": "Ahmed Khan",
+      "lastName": "Khan",
+      "UserName": "AhmedKhan",
+      "Email": "Ahmed_Khan@gmail.com",
+      "password": "ahmed123",
+      "Contact": "+923172054655",
+      "Address": "AbcStreet1233",
+      "Type": "user",
+      "Status": "Active",
+      "Gender": "Male",
+      "id": 8
+    },
+    {
+      "id": 9,
+      "firstName": "Akram",
+      "lastName": "Khan",
+      "UserName": "Akram",
+      "Email": "AkramKhan@gmail.com",
+      "password": "akram123",
+      "Contact": "+923172087877",
+      "Address": "AbcStreet123",
+      "Type": "user",
+      "Status": "Active",
+      "Gender": "Male"
+    },
+    {
+      "firstName": "Aisha",
+      "lastName": "Khan",
+      "UserName": "Aisha",
+      "Email": "AishaKhan@gmail.com",
+      "password": "Aisha123",
+      "Contact": "+923172089877",
+      "Address": "AbcStreer123",
+      "Type": "user",
+      "Status": "Active",
+      "Gender": "Female",
+      "id": 10
+    },
+    {
+      "id": 11,
+      "firstName": "Zainab",
+      "lastName": "Khan",
+      "UserName": "Zainab",
+      "Email": "ZainabKhan@gmail.com",
+      "password": "Zainab123",
+      "Contact": "+923125465877",
+      "Address": "AbcStreet123",
+      "Type": "user",
+      "Status": "Active",
+      "Gender": "Female"
+    },
+    {
+      "id": 12,
+      "firstName": "Amir",
+      "lastName": "Khan",
+      "UserName": "AmirKhan",
+      "Email": "AmirKhan@gmail.com",
+      "password": "amir1234",
+      "Contact": "+923172054699",
+      "Address": "AbcStreet123",
+      "Type": "user",
+      "Status": "Active",
+      "Gender": "Male"
+    }
+  ],
+  "Recipes": [
+    {
+      "Recipe_Name": "Chocolate",
+      "Cooking_Time": "takes around 20 to 30 minutes",
+      "Ingredients": "1) 2 cups heavy cream 2) 1 cup whole milk 3) 3/4 cup granulated sugar 4) 1/2 cup cocoa powder 5) 1 tablespoon pure vanilla extract",
+      "Instructions": "Whisk together heavy cream, whole milk, sugar, cocoa powder, and vanilla extract until smooth. Pour the mixture into an ice cream maker and churn according to the manufacturer's instructions. Transfer the churned ice cream to an airtight container and freeze for at least 4 hours.",
+      "Calories": "Around 200-250 calories",
+      "image": "../../../assets/images/recipesImages/Chocoloate.jpg",
+      "Author_ID": 1,
+      "Author_Name": "Admin",
+      "Status": "Available",
+      "Rating": "4.5",
+      "id": 2
+    },
+    {
+      "Rating": "4.5",
+      "Recipe_Name": "Strawberry",
+      "Cooking_Time": "takes around 40 to 30 minutes",
+      "Ingredients": "1) 2 cups fresh strawberries, hulled and chopped 2) 1 cup heavy cream 3) 1 cup whole milk 4) 3/4 cup granulated sugar 5) 1 tablespoon lemon juice 6) 1 teaspoon vanilla extract ",
+      "Instructions": "Puree strawberries in a blender or food processor. In a bowl, mix strawberry puree, heavy cream, whole milk, sugar, lemon juice, and vanilla extract. Pour the mixture into an ice cream maker and churn according to the manufacturer's instructions. Transfer the churned ice cream to an airtight container and freeze for at least 4 hours.",
+      "Calories": "Around 200-250 calories",
+      "image": "../../../assets/images/recipesImages/Strawberry.webp",
+      "Author_ID": 1,
+      "Author_Name": "Admin",
+      "Status": "Available",
+      "id": 3
+    },
+    {
+      "id": 4,
+      "Author_ID": 1,
+      "Recipe_Name": "Cookies and Cream",
+      "Author_Name": "Admin",
+      "Ingredients": "1) 2 cups heavy cream 2) 1 cup whole milk 3) 3/4 cup granulated sugar 4) 1 teaspoon vanilla extract 5) 10-12 chocolate sandwich cookies (like Oreo), crushed",
+      "Instructions": "In a bowl, whisk together heavy cream, whole milk, sugar, and vanilla extract until the sugar is dissolved. Pour the mixture into an ice cream maker and churn according to the manufacturer's instructions. While the ice cream is churning, crush the chocolate sandwich cookies.You can do this by placing them in a plastic bag and using a rolling pin or your hands.During the last few minutes of churning, add the crushed cookies to the ice cream and let the machine incorporate them.Once the ice cream reaches a soft-serve consistency, transfer it to an airtight container.Freeze the ice cream for at least 4 hours or until it reaches your desired firmness.",
+      "Cooking_Time": "takes around 20 to 30 minutes",
+      "Calories": "Around 400-450 calories",
+      "Rating": "4",
+      "Status": "Available",
+      "image": "../../../assets/images/recipesImages/Cookies and Cream.jpg"
+    },
+    {
+      "id": 5,
+      "Author_ID": 1,
+      "Recipe_Name": "Butter Pecan",
+      "Author_Name": "Admin",
+      "Ingredients": "1) 1 cup chopped pecans 2) 2 tablespoons unsalted butter 3) 2 cups heavy cream 4) 1 cup whole milk 5) 3/4 cup brown sugar (packed) 6) 1 teaspoon vanilla extract",
+      "Instructions": "In a medium skillet, melt the butter over medium heat. Add the chopped pecans and cook, stirring frequently, until the pecans are toasted and fragrant. Be careful not to burn them. Once toasted, remove them from the skillet and let them cool.In a mixing bowl, whisk together the heavy cream, whole milk, brown sugar, and vanilla extract until the sugar is fully dissolved.Pour the mixture into an ice cream maker and churn according to the manufacturer's instructions.During the last few minutes of churning, add the toasted pecans to the ice cream and let the machine incorporate them.Once the ice cream reaches a soft-serve consistency, transfer it to an airtight container.Freeze the ice cream for at least 4 hours or until it reaches your desired firmness.",
+      "Cooking_Time": "takes around 40 to 50 minutes",
+      "Calories": "Around 300-350 calories",
+      "Rating": "4.5",
+      "Status": "Available",
+      "image": "../../../assets/images/recipesImages/Butter Pecan.jpg"
+    },
+    {
+      "id": 6,
+      "Author_ID": 1,
+      "Recipe_Name": "Coffee",
+      "Author_Name": "Admin",
+      "Ingredients": "1) 2 cups heavy cream 2) 1 cup whole milk 3) 3/4 cup granulated sugar 4) 1/4 cup instant coffee granules (adjust to taste) 5) 1 teaspoon vanilla extract",
+      "Instructions": "In a mixing bowl, whisk together heavy cream, whole milk, sugar, instant coffee granules, and vanilla extract until the sugar and coffee granules are fully dissolved.Pour the mixture into an ice cream maker and churn according to the manufacturer's instructions.Once the ice cream reaches a soft-serve consistency, transfer it to an airtight container.Freeze the ice cream for at least 4 hours or until it reaches your desired firmness.",
+      "Cooking_Time": "takes around 20 to 25 minutes",
+      "Calories": "Around 200-250 calories",
+      "Rating": "4.5",
+      "Status": "Available",
+      "image": "../../../assets/images/recipesImages/Coffee.webp"
+    },
+    {
+      "id": 7,
+      "Author_ID": 1,
+      "Recipe_Name": "Pistachio",
+      "Author_Name": "Admin",
+      "Ingredients": "1) 2 cups heavy cream 2) 1 cup whole milk 3) 3/4 cup granulated sugar 4) 1 teaspoon vanilla extract 5) 1 cup shelled pistachios, toasted and finely chopped",
+      "Instructions": "In a mixing bowl, whisk together heavy cream, whole milk, sugar, and vanilla extract until the sugar is fully dissolved. Toast the shelled pistachios in a dry skillet over medium heat until they are fragrant. Allow them to cool, then finely chop or process them until you have small pieces.Add the chopped pistachios to the ice cream mixture and mix well.Pour the mixture into an ice cream maker and churn according to the manufacturer's instructions.Once the ice cream reaches a soft-serve consistency, transfer it to an airtight container.Freeze the ice cream for at least 4 hours or until it reaches your desired firmness.",
+      "Cooking_Time": "takes around 20 to 25 minutes",
+      "Calories": "Around 200-250 calories",
+      "Rating": "5",
+      "Status": "Available",
+      "image": "../../../assets/images/recipesImages/Pistachio.webp"
+    },
+    {
+      "id": 8,
+      "Author_ID": 1,
+      "Recipe_Name": "Caramel Swirl",
+      "Author_Name": "Admin",
+      "Ingredients": "1) 2 cups heavy cream 2) 1 cup whole milk 3) 3/4 cup granulated sugar 4) 1 teaspoon vanilla extract 5) 1/2 cup caramel sauce (store-bought or homemade)",
+      "Instructions": "In a mixing bowl, whisk together heavy cream, whole milk, sugar, and vanilla extract until the sugar is fully dissolved.Pour the mixture into an ice cream maker and churn according to the manufacturer's instructions.While the ice cream is churning, warm the caramel sauce slightly to make it more pourable.During the last few minutes of churning, drizzle the warm caramel sauce into the ice cream, allowing it to create swirls.Once the ice cream reaches a soft-serve consistency, transfer it to an airtight container.Freeze the ice cream for at least 4 hours or until it reaches your desired firmness.",
+      "Cooking_Time": "takes around 20 to 30 minutes",
+      "Calories": "Around 200-250 calories The additional freezing time is around 4 hours",
+      "Rating": "5",
+      "Status": "Available",
+      "image": "../../../assets/images/recipesImages/Caramel Swirl.webp"
+    },
+    {
+      "Rating": "4",
+      "Recipe_Name": "Maple Walnut",
+      "Cooking_Time": "takes around 20 to 25 minutes",
+      "Ingredients": "1) 2 cups heavy cream 2) 1 cup whole milk 3) 3/4 cup pure maple syrup 4) 1/2 cup chopped walnuts, toasted 5) 1 teaspoon vanilla extract",
+      "Instruction": "In a mixing bowl, whisk together heavy cream, whole milk, pure maple syrup, and vanilla extract until well combined.Toast the chopped walnuts in a dry skillet over medium heat until they are fragrant. Allow them to cool.Add the toasted walnuts to the ice cream mixture and mix well.Pour the mixture into an ice cream maker and churn according to the manufacturer's instructions.Once the ice cream reaches a soft-serve consistency, transfer it to an airtight container.Freeze the ice cream for at least 4 hours or until it reaches your desired firmness.",
+      "Calories": "Around 220-260 calories",
+      "Author_ID": 1,
+      "Author_Name": "Admin",
+      "Status": "Available",
+      "image": "../../../assets/images/recipesImages/Maple Walnut.webp",
+      "id": 9
+    },
+    {
+      "Rating": "4.5",
+      "Recipe_Name": "Salted Caramel",
+      "Cooking_Time": "takes around 20 to 30 minutes",
+      "Ingredients": "1) 2 cups heavy cream 2) 1 cup whole milk 3) 3/4 cup granulated sugar 4) 1/2 cup caramel sauce (store-bought or homemade) 5) 1 teaspoon vanilla extract 6) 1/2 teaspoon sea salt (adjust to taste)",
+      "Instructions": "In a mixing bowl, whisk together heavy cream, whole milk, sugar, and vanilla extract until the sugar is fully dissolved.Pour the mixture into an ice cream maker and churn according to the manufacturer's instructions.While the ice cream is churning, warm the caramel sauce slightly to make it more pourable.During the last few minutes of churning, drizzle the warm caramel sauce into the ice cream, and add sea salt. Allow it to create swirls.Taste the ice cream and adjust the salt level to your liking.Once the ice cream reaches a soft-serve consistency, transfer it to an airtight container.Freeze the ice cream for at least 4 hours or until it reaches your desired firmness.",
+      "Calories": "Around 220-260 calories",
+      "image": "../../../assets/images/recipesImages/Salted Caramel.jpg",
+      "Author_ID": 1,
+      "Author_Name": "Admin",
+      "Status": "Available",
+      "id": 10
+    }
+  ],
+  "flavours": [
+    {
+      "id": 1,
+      "flavourName": "Vanilla",
+      "Rating": "4.5",
+      "status": "Available"
+    },
+    {
+      "id": 2,
+      "flavourName": "Strawberry",
+      "Rating": "4.5",
+      "status": "Available"
+    },
+    {
+      "id": 3,
+      "flavourName": "Chocolate",
+      "Rating": "4.5",
+      "status": "Available"
+    },
+    {
+      "id": 4,
+      "flavourName": "Caramel",
+      "Rating": "4.5",
+      "status": "Available"
+    }
+  ],
+  "books": [
+    {
+      "id": 1,
+      "bookName": "Vanilla",
+      "Author": "Admin",
+      "Rating": "4.5",
+      "status": "Available"
+    },
+    {
+      "id": 2,
+      "bookName": "Strawberry",
+      "Author": "Admin",
+      "Rating": "4.5",
+      "status": "Available"
+    },
+    {
+      "id": 3,
+      "bookName": "Chocolate",
+      "Author": "Admin",
+      "Rating": "4.5",
+      "status": "Available"
+    }
+  ],
+  "usersRecipes": [
+    {
+      "id": 1,
+      "Author_ID": 1,
+      "Recipe_Name": "Vanilla",
+      "Author_Name": "Wajid Hussain",
+      "Ingredients": "1) Heavy Cream: 2 cups 2) Whole Milk: 1 cup 4) Granulated Sugar: 3/4 cup 4) Vanilla Extract: 1 tablespoon",
+      "Instructions": "1) In a mixing bowl, combine the heavy cream and whole milk. 2) Add the granulated sugar to the mixture and stir until the sugar is completely dissolved. 3) Add the vanilla extract and mix well. 4) Pour the mixture into an ice cream maker. 5) Follow the manufacturer's instructions for your ice cream maker to churn the mixture until it reaches a soft-serve consistency. 6) Transfer the churned ice cream to a lidded container and freeze for at least 4 hours or until it reaches your desired firmness. This basic recipe forms the foundation for vanilla ice cream, but there are many variations and additional ingredients you can incorporate, such as egg yolks for a custard-style ice cream, or vanilla bean for a more intense vanilla flavor",
+      "Cooking_Time": "takes around 20 to 30 minutes",
+      "Calories": "Around 300-350 calories",
+      "image": "../../../assets/images/recipesImages/Vanilla_IceCream.webp"
+    },
+    {
+      "id": 2,
+      "Author_ID": 2,
+      "Recipe_Name": "Chocolate",
+      "Author_Name": "Noman Hussain",
+      "Ingredients": "1) 2 cups heavy cream 2) 1 cup whole milk 3) 3/4 cup granulated sugar 4) 1/2 cup cocoa powder 5) 1 tablespoon pure vanilla extract",
+      "Instructions": "Whisk together heavy cream, whole milk, sugar, cocoa powder, and vanilla extract until smooth. Pour the mixture into an ice cream maker and churn according to the manufacturer's instructions. Transfer the churned ice cream to an airtight container and freeze for at least 4 hours.",
+      "Cooking_Time": "takes around 20 to 30 minutes",
+      "Calories": "Around 200-250 calories",
+      "image": "../../../assets/images/recipesImages/Chocoloate.jpg"
+    },
+    {
+      "id": 3,
+      "Author_ID": 3,
+      "Recipe_Name": "Strawberry",
+      "Author_Name": "Kamran Khalid",
+      "Ingredients": "1) 2 cups fresh strawberries, hulled and chopped 2) 1 cup heavy cream 3) 1 cup whole milk 4) 3/4 cup granulated sugar 5) 1 tablespoon lemon juice 6) 1 teaspoon vanilla extract",
+      "Instructions": "Puree strawberries in a blender or food processor. In a bowl, mix strawberry puree, heavy cream, whole milk, sugar, lemon juice, and vanilla extract. Pour the mixture into an ice cream maker and churn according to the manufacturer's instructions. Transfer the churned ice cream to an airtight container and freeze for at least 4 hours.",
+      "Cooking_Time": "takes around 40 to 30 minutes",
+      "Calories": "Around 200-250 calories",
+      "image": "../../../assets/images/recipesImages/Strawberry.webp"
+    },
+    {
+      "id": 4,
+      "Author_ID": 4,
+      "Recipe_Name": "Cookies and Cream",
+      "Author_Name": "Salman Khan",
+      "Ingredients": "1) 2 cups heavy cream 2) 1 cup whole milk 3) 3/4 cup granulated sugar 4) 1 teaspoon vanilla extract 5) 10-12 chocolate sandwich cookies (like Oreo), crushed",
+      "Instructions": "In a bowl, whisk together heavy cream, whole milk, sugar, and vanilla extract until the sugar is dissolved. Pour the mixture into an ice cream maker and churn according to the manufacturer's instructions. While the ice cream is churning, crush the chocolate sandwich cookies.You can do this by placing them in a plastic bag and using a rolling pin or your hands.During the last few minutes of churning, add the crushed cookies to the ice cream and let the machine incorporate them.Once the ice cream reaches a soft-serve consistency, transfer it to an airtight container.Freeze the ice cream for at least 4 hours or until it reaches your desired firmness.",
+      "Cooking_Time": "takes around 20 to 30 minutes",
+      "Calories": "Around 400-450 calories",
+      "image": "../../../assets/images/recipesImages/Cookies and Cream.jpg"
+    },
+    {
+      "id": 5,
+      "Author_ID": 5,
+      "Recipe_Name": "Butter Pecan",
+      "Author_Name": "AhmedKhan",
+      "Ingredients": "1) 1 cup chopped pecans 2) 2 tablespoons unsalted butter 3) 2 cups heavy cream 4) 1 cup whole milk 5) 3/4 cup brown sugar (packed) 6) 1 teaspoon vanilla extract",
+      "Instructions": "In a medium skillet, melt the butter over medium heat. Add the chopped pecans and cook, stirring frequently, until the pecans are toasted and fragrant. Be careful not to burn them. Once toasted, remove them from the skillet and let them cool.In a mixing bowl, whisk together the heavy cream, whole milk, brown sugar, and vanilla extract until the sugar is fully dissolved.Pour the mixture into an ice cream maker and churn according to the manufacturer's instructions.During the last few minutes of churning, add the toasted pecans to the ice cream and let the machine incorporate them.Once the ice cream reaches a soft-serve consistency, transfer it to an airtight container.Freeze the ice cream for at least 4 hours or until it reaches your desired firmness.",
+      "Cooking_Time": "takes around 40 to 50 minutes",
+      "Calories": "Around 300-350 calories",
+      "image": "../../../assets/images/recipesImages/Butter Pecan.jpg"
+    },
+    {
+      "id": 6,
+      "Author_ID": 6,
+      "Recipe_Name": "Coffee",
+      "Author_Name": "Akram",
+      "Ingredients": "1) 2 cups heavy cream 2) 1 cup whole milk 3) 3/4 cup granulated sugar 4) 1/4 cup instant coffee granules (adjust to taste) 5) 1 teaspoon vanilla extract",
+      "Instructions": "In a mixing bowl, whisk together heavy cream, whole milk, sugar, instant coffee granules, and vanilla extract until the sugar and coffee granules are fully dissolved.Pour the mixture into an ice cream maker and churn according to the manufacturer's instructions.Once the ice cream reaches a soft-serve consistency, transfer it to an airtight container.Freeze the ice cream for at least 4 hours or until it reaches your desired firmness.",
+      "Cooking_Time": "takes around 20 to 25 minutes",
+      "Calories": "Around 200-250 calories",
+      "image": "../../../assets/images/recipesImages/Coffee.webp"
+    },
+    {
+      "id": 7,
+      "Author_ID": 7,
+      "Recipe_Name": "Pistachio",
+      "Author_Name": "Aisha",
+      "Ingredients": "1) 2 cups heavy cream 2) 1 cup whole milk 3) 3/4 cup granulated sugar 4) 1 teaspoon vanilla extract 5) 1 cup shelled pistachios, toasted and finely chopped",
+      "Instructions": "In a mixing bowl, whisk together heavy cream, whole milk, sugar, and vanilla extract until the sugar is fully dissolved. Toast the shelled pistachios in a dry skillet over medium heat until they are fragrant. Allow them to cool, then finely chop or process them until you have small pieces.Add the chopped pistachios to the ice cream mixture and mix well.Pour the mixture into an ice cream maker and churn according to the manufacturer's instructions.Once the ice cream reaches a soft-serve consistency, transfer it to an airtight container.Freeze the ice cream for at least 4 hours or until it reaches your desired firmness.",
+      "Cooking_Time": "takes around 20 to 25 minutes",
+      "Calories": "Around 200-250 calories",
+      "image": "../../../assets/images/recipesImages/Pistachio.webp"
+    },
+    {
+      "id": 8,
+      "Author_ID": 8,
+      "Recipe_Name": "Caramel Swirl",
+      "Author_Name": "Zainab",
+      "Ingredients": "1) 2 cups heavy cream 2) 1 cup whole milk 3) 3/4 cup granulated sugar 4) 1 teaspoon vanilla extract 5) 1/2 cup caramel sauce (store-bought or homemade)",
+      "Instructions": "In a mixing bowl, whisk together heavy cream, whole milk, sugar, and vanilla extract until the sugar is fully dissolved.Pour the mixture into an ice cream maker and churn according to the manufacturer's instructions.While the ice cream is churning, warm the caramel sauce slightly to make it more pourable.During the last few minutes of churning, drizzle the warm caramel sauce into the ice cream, allowing it to create swirls.Once the ice cream reaches a soft-serve consistency, transfer it to an airtight container.Freeze the ice cream for at least 4 hours or until it reaches your desired firmness.",
+      "Cooking_Time": "takes around 20 to 30 minutes",
+      "Calories": "Around 200-250 calories The additional freezing time is around 4 hours",
+      "image": "../../../assets/images/recipesImages/Caramel Swirl.webp"
+    },
+    {
+      "id": 9,
+      "Author_ID": 9,
+      "Recipe_Name": "Maple Walnut",
+      "Author_Name": "AmirKhan",
+      "Ingredients": "1) 2 cups heavy cream 2) 1 cup whole milk 3) 3/4 cup pure maple syrup 4) 1/2 cup chopped walnuts, toasted 5) 1 teaspoon vanilla extract",
+      "Instructions": "In a mixing bowl, whisk together heavy cream, whole milk, pure maple syrup, and vanilla extract until well combined.Toast the chopped walnuts in a dry skillet over medium heat until they are fragrant. Allow them to cool.Add the toasted walnuts to the ice cream mixture and mix well.Pour the mixture into an ice cream maker and churn according to the manufacturer's instructions.Once the ice cream reaches a soft-serve consistency, transfer it to an airtight container.Freeze the ice cream for at least 4 hours or until it reaches your desired firmness.",
+      "Cooking_Time": "takes around 20 to 25 minutes",
+      "Calories": "Around 220-260 calories",
+      "image": "../../../assets/images/recipesImages/Maple Walnut.webp"
+    },
+    {
+      "Rating": "4.5",
+      "id": 10,
+      "Author_ID": 10,
+      "Recipe_Name": "Salted Caramel",
+      "Author_Name": "Yasir Arafat",
+      "Ingredients": "1) 2 cups heavy cream 2) 1 cup whole milk 3) 3/4 cup granulated sugar 4) 1/2 cup caramel sauce (store-bought or homemade) 5) 1 teaspoon vanilla extract 6) 1/2 teaspoon sea salt (adjust to taste)",
+      "Instructions": "In a mixing bowl, whisk together heavy cream, whole milk, sugar, and vanilla extract until the sugar is fully dissolved.Pour the mixture into an ice cream maker and churn according to the manufacturer's instructions.While the ice cream is churning, warm the caramel sauce slightly to make it more pourable.During the last few minutes of churning, drizzle the warm caramel sauce into the ice cream, and add sea salt. Allow it to create swirls.Taste the ice cream and adjust the salt level to your liking.Once the ice cream reaches a soft-serve consistency, transfer it to an airtight container.Freeze the ice cream for at least 4 hours or until it reaches your desired firmness.",
+      "Cooking_Time": "takes around 20 to 30 minutes",
+      "Calories": "Around 220-260 calories",
+      "image": "../../../assets/images/recipesImages/Salted Caramel.jpg"
+    },
+    {
+      "Author_ID": 2,
+      "Recipe_Name": "Chocolate",
+      "Author_Name": "Noman Hussain",
+      "Ingredients": "1) 2 cups heavy cream 2) 1 cup whole milk 3) 3/4 cup granulated sugar 4) 1/2 cup cocoa powder 5) 1 tablespoon pure vanilla extract",
+      "Instructions": "Whisk together heavy cream, whole milk, sugar, cocoa powder, and vanilla extract until smooth. Pour the mixture into an ice cream maker and churn according to the manufacturer's instructions. Transfer the churned ice cream to an airtight container and freeze for at least 4 hours.",
+      "Cooking_Time": "takes around 20 to 30 minutes",
+      "Calories": "Around 200-250 calories",
+      "Rating": null,
+      "Status": null,
+      "image": "../../../assets/images/recipesImages/Chocoloate.jpg",
+      "id": 11
+    }
+  ],
+  "recipeWinners": [
+    {
+      "Author_ID": 1,
+      "Recipe_Name": "Vanilla",
+      "Author_Name": "Wajid Hussain",
+      "Ingredients": "1) Heavy Cream: 2 cups 2) Whole Milk: 1 cup 4) Granulated Sugar: 3/4 cup 4) Vanilla Extract: 1 tablespoon",
+      "Instructions": "1) In a mixing bowl, combine the heavy cream and whole milk. 2) Add the granulated sugar to the mixture and stir until the sugar is completely dissolved. 3) Add the vanilla extract and mix well. 4) Pour the mixture into an ice cream maker. 5) Follow the manufacturer's instructions for your ice cream maker to churn the mixture until it reaches a soft-serve consistency. 6) Transfer the churned ice cream to a lidded container and freeze for at least 4 hours or until it reaches your desired firmness. This basic recipe forms the foundation for vanilla ice cream, but there are many variations and additional ingredients you can incorporate, such as egg yolks for a custard-style ice cream, or vanilla bean for a more intense vanilla flavor",
+      "Cooking_Time": "takes around 20 to 30 minutes",
+      "Calories": "Around 300-350 calories",
+      "Rating": null,
+      "Status": null,
+      "image": "../../../assets/images/recipesImages/Vanilla_IceCream.webp",
+      "id": 1
+    },
+    {
+      "Author_ID": 1,
+      "Recipe_Name": "Vanilla",
+      "Author_Name": "Wajid Hussain",
+      "Ingredients": "1) Heavy Cream: 2 cups 2) Whole Milk: 1 cup 4) Granulated Sugar: 3/4 cup 4) Vanilla Extract: 1 tablespoon",
+      "Instructions": "1) In a mixing bowl, combine the heavy cream and whole milk. 2) Add the granulated sugar to the mixture and stir until the sugar is completely dissolved. 3) Add the vanilla extract and mix well. 4) Pour the mixture into an ice cream maker. 5) Follow the manufacturer's instructions for your ice cream maker to churn the mixture until it reaches a soft-serve consistency. 6) Transfer the churned ice cream to a lidded container and freeze for at least 4 hours or until it reaches your desired firmness. This basic recipe forms the foundation for vanilla ice cream, but there are many variations and additional ingredients you can incorporate, such as egg yolks for a custard-style ice cream, or vanilla bean for a more intense vanilla flavor",
+      "Cooking_Time": "takes around 20 to 30 minutes",
+      "Calories": "Around 300-350 calories",
+      "Rating": null,
+      "Status": null,
+      "image": "../../../assets/images/recipesImages/Vanilla_IceCream.webp",
+      "id": 2
+    }
+  ]
+}

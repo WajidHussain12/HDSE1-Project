@@ -1,0 +1,117 @@
+<head>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.12.0/css/all.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hack-font@3/build/web/hack.css">
+</head>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-transparent fixed-top px-4" [class.scrolled-down]="isScrolledDown">
+  <div class="container-fluid">
+    <button style="background-color: white;" class="navbar-toggler" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse  abc" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <div style=" width: 3.5%;">
+          <a routerLink=""><img src="assets/project images/newlogo.png" width="55%" alt="Logo" /></a>
+        </div>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            PRODUCTS
+          </a>
+          <ul class="dropdown-menu">
+            <li routerLink="/allicecreams"><a class="dropdown-item">Ice Creams</a></li>
+            <li routerLink="/userbooks"><a class="dropdown-item">Books</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            FLAVORS
+          </a>
+          <ul class="dropdown-menu customlist">
+            <div class="row customdiv" style="width:400px;">
+              <div class="col-md-6">
+                <li *ngFor="let flavorData of allFlavorData.slice(0, allFlavorData.length / 2)" class="customliWidth">
+                  <a [routerLink]="['/variety', flavorData.id]" style="font-size: 13px; padding: 5px 20px;"
+                    class="dropdown-item">{{ flavorData.flavor }}</a>
+                </li>
+              </div>
+              <div class="col-md-6">
+                <li *ngFor="let flavorData of allFlavorData.slice(allFlavorData.length / 2)" class="customliWidth">
+                  <a [routerLink]="['/variety', flavorData.id]" style="font-size: 13px; padding: 5px 20px;"
+                    class="dropdown-item">{{ flavorData.flavor }}</a>
+                </li>
+              </div>
+            </div>
+          </ul>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            RECIPES
+          </a>
+          <ul class="dropdown-menu customlist">
+            <div class="row customdiv" style="width:400px;">
+              <div class="col-md-6">
+                <li *ngFor="let flavorData of allFlavorData.slice(0, allFlavorData.length / 2)" class="customliWidth">
+                  <a [routerLink]="['/recipe', flavorData.id]" style="font-size: 13px; padding: 5px 20px;"
+                    class="dropdown-item">{{ flavorData.flavor }}</a>
+                </li>
+              </div>
+              <div class="col-md-6">
+                <li *ngFor="let flavorData of allFlavorData.slice(allFlavorData.length / 2)" class="customliWidth">
+                  <a [routerLink]="['/recipe', flavorData.id]" style="font-size: 13px; padding: 5px 20px;"
+                    class="dropdown-item">{{ flavorData.flavor }}</a>
+                </li>
+              </div>
+            </div>
+          </ul>
+        </li>
+
+        <li routerLink="/aboutus" class="nav-item dropdown">
+          <a class="nav-link" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            ABOUT US
+          </a>
+        </li>
+        <li routerLink="/contactus" class="nav-item dropdown">
+          <a class="nav-link" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            CONTACT US
+          </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            ADMINISTRATOR
+          </a>
+          <ul class="dropdown-menu">
+            <li *ngIf="adminlogin" routerLink="/adminlogin"><a class="dropdown-item">Admin Login</a></li>
+            <li *ngIf="loginshow" routerLink="/admin/dashboard"><a class="dropdown-item">Admin</a></li>
+          </ul>
+
+
+        </li>
+      </ul>
+      <div style="display: flex; position: sticky;">
+        <div *ngIf="RegisterandLogin">
+          <button routerLink="/login" class="login-btn me-4">LOGIN</button>
+        </div>
+        <div *ngIf="RegisterandLogin">
+          <button routerLink="/register" class="reg-btn me-4">REGISER</button>
+        </div>
+        <div *ngIf="ShowUserName">
+          <button routerLink="/user/dashboard" class="reg-btn me-4">{{loginusername}}</button>
+        </div>
+      </div>
+      <div>
+        <span class="position-relative" routerLink="/shoppingcart"
+          style="color: rgb(231, 170, 16); font-size: 25px; cursor: pointer;"><i class="bi bi-cart-fill"></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="padding: 3px;">
+            {{cartupdate}}
+          </span>
+        </span>
+      </div>
+    </div>
+  </div>
+</nav>

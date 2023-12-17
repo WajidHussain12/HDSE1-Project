@@ -1,0 +1,28 @@
+.custom-red-checkbox {
+  background-color: #78C1F3
+}
+
+
+.custom-red-checkbox:hover {
+  text-shadow: 2px 2px 4px red;
+  outline: 2px solid #00A9FF;
+  /* border: 2px solid red; */
+
+}
+
+
+
+.toggle-password {
+  float: right;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-top: -25px;
+}
+
+
+
+.form-control::-webkit-inner-spin-button,
+.form-control::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

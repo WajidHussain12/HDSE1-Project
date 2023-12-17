@@ -1,0 +1,72 @@
+<!--  Body Wrapper Start -->
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+  data-sidebar-position="fixed" data-header-position="fixed">
+
+  <!--  Sidebar component start -->
+  <app-sidebar></app-sidebar>
+  <!--  Sidebar component End-->
+
+  <!--  Main wrapper -->
+  <div class="body-wrapper">
+
+    <!--  Header Component Start -->
+    <app-nav></app-nav>
+    <!--  Header Component End -->
+    <div class="container-fluid">
+
+
+      <form [formGroup]="addbook" (ngSubmit)="save()">
+        <div class="" style="box-shadow: 1px 1px 30px 1px rgba(0, 0, 0, 0.463);padding: 15px; border-radius: 10px;">
+
+          <div class="mb-4">
+            <h1 style="border-radius: 8px; font-weight: bold;">Add <span style="color:#6499E9;">Book</span></h1>
+          </div>
+
+          <div>
+
+            <div class="mb-3">
+              <label class="form-label">Book Name</label>
+              <input type="text" class="form-control" placeholder="Recipe Name" formControlName="bookName">
+              <div
+                *ngIf="addbook.get('bookName')?.invalid && (addbook.get('bookName')?.dirty || addbook.get('bookName')?.touched)">
+                <div *ngIf="addbook.get('bookName')?.hasError('required')" style="color: red;">Book Name
+                  Required
+                </div>
+                <div *ngIf="addbook.get('bookName')?.hasError('maxlength')" style="color: red;">Maximum length
+                  exceeded (max 30 characters)</div>
+                <div *ngIf="addbook.get('bookName')?.hasError('pattern')" style="color: red;">Please enter only
+                  letters and spaces.</div>
+              </div>
+            </div>
+
+            <div class="mb3">
+              <label class="form-label">Description</label>
+              <input type="text" class="form-control" placeholder="Description" formControlName="description">
+            </div>
+
+            <div class="mb-3">
+
+              <label class="form-label">Price</label>
+              <input type="text" class="form-control" placeholder="Price" formControlName="price">
+            </div>
+
+
+            <div class="mb-3">
+              <label class="form-label">Book Image</label>
+              <input type="file" class="form-control" placeholder="Book Image" formControlName="bookImage" (change)="onchange($event)">
+            </div>
+
+
+            <div class="mb-3 mt-4">
+              <button type="submit" class="btn btn-primary" >Submit</button>
+            </div>
+
+          </div>
+          </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+<!--  Body Wrapper End -->

@@ -1,0 +1,44 @@
+.cardbody {
+  margin-top: 11vh;
+  background: #eecda3;
+  background: -webkit-linear-gradient(to right, #eecda3, #ef629f);
+  background: linear-gradient(to right, #eecda3, #ef629f);
+  min-height: 100vh;
+}
+
+
+
+.quantity-picker-container {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-picker {
+  width: 40px;
+  text-align: center;
+  font-size: 16px;
+}
+
+.quantity-decrement,
+.quantity-increment {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.quantity-decrement:hover,
+.quantity-increment:hover {
+  background-color: #0056b3;
+}
+
+
+.customdeleteicon {
+  color: rgba(239, 21, 21, 0.721);
+  cursor: pointer;
+}
+
+.customdeleteicon:hover {
+  color: red;
+}

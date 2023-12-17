@@ -1,0 +1,73 @@
+<!--  Body Wrapper Start -->
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+  data-sidebar-position="fixed" data-header-position="fixed">
+
+  <!--  Sidebar component start -->
+  <app-sidebar></app-sidebar>
+  <!--  Sidebar component End-->
+
+  <!--  Main wrapper -->
+  <div class="body-wrapper">
+
+    <!--  Header Component Start -->
+    <app-nav></app-nav>
+    <!--  Header Component End -->
+    <div class="container-fluid">
+      <!-- Registered Users Table Start -->
+      <!-- Striped Rows -->
+      <div class="card">
+        <h5 class="card-header">Recipes Winner's</h5>
+        <div class="table-responsive text-nowrap">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Recipe ID</th>
+                <th>Author ID</th>
+                <th>Recipe Name</th>
+                <th>Author Name</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody class="table-border-bottom-0" *ngFor="let winner of recipeWinnerData">
+              <tr>
+                <!-- <td>{{winner}}</td> -->
+                <td>{{winner.Author_ID}}</td>
+                <td>{{winner.Recipe_Name}}</td>
+                <td>{{winner.Author_Name}}</td>
+                <td>
+                  <div class="dropdown">
+                    <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                      <i class="mdi mdi-dots-vertical"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                      <div class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                        style="margin-bottom: 5px;display: flex; justify-content: center; align-items: center; cursor: pointer;">
+                        <span style="color:Red; margin-right: 5px;" class="material-symbols-outlined">
+                          Delete
+                        </span>
+                        <a>Delete</a>
+                      </div>
+
+                      <div class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                        style="margin-bottom: 5px;display: flex; justify-content: center; align-items: center; cursor: pointer;">
+                        <span style="color:Red; margin-right: 5px;" class="material-symbols-outlined">
+                          expand_more
+                        </span>
+                        <a>Show More</a>
+                      </div>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <!--/ Striped Rows -->
+      <!-- Registered Users Table End -->
+
+
+    </div>
+  </div>
+</div>
+<!--  Body Wrapper End -->

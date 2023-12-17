@@ -1,0 +1,150 @@
+<!--  Body Wrapper Start -->
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+  data-sidebar-position="fixed" data-header-position="fixed">
+
+  <!--  Sidebar component start -->
+  <app-sidebar></app-sidebar>
+  <!--  Sidebar component End-->
+
+  <!--  Main wrapper -->
+  <div class="body-wrapper">
+
+    <!--  Header Component Start -->
+    <app-nav></app-nav>
+    <!--  Header Component End -->
+    <div class="container-fluid">
+
+
+      <form [formGroup]="varietyform" (ngSubmit)="save()">
+        <div class="" style="box-shadow: 1px 1px 30px 1px rgba(0, 0, 0, 0.463);padding: 15px; border-radius: 10px;">
+
+          <div class="mb-2">
+            <h1 style="border-radius: 8px; font-weight: bold;">Add Variety</h1>
+          </div>
+          <div class="mb-3">
+            <h5>Please Select Recipe Name</h5>
+          </div>
+          <select class="btn btn-dark dropdown-toggle mb-3" aria-label="Default select example"
+            formControlName="recipeId" (change)="onSelectChange($event)">
+            <option value="" disabled selected>Select a recipe</option>
+            <option *ngFor="let recipe of RecipeIdAndName" [value]="recipe.rid">{{recipe.rname}}</option>
+          </select>
+          <div
+            *ngIf="varietyform.get('recipeId')?.invalid && (varietyform.get('recipeId')?.dirty || varietyform.get('recipeId')?.touched)">
+            <div *ngIf="varietyform.get('recipeId')?.hasError('required')" style="color: red;">
+              Please Select Recipe Name
+            </div>
+          </div>
+
+
+
+          <div class="d-flex">
+
+            <div class="" style="width: 50%; padding: 10px;">
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Variety Name</label>
+                <input type="text" class="form-control" placeholder="First Name" formControlName="varietyName">
+                <div
+                  *ngIf="varietyform.get('varietyName')?.invalid && (varietyform.get('varietyName')?.dirty || varietyform.get('varietyName')?.touched)">
+                  <div *ngIf="varietyform.get('varietyName')?.hasError('required')" style="color: red;">Variety Name Required</div>
+                  <div *ngIf="varietyform.get('varietyName')?.hasError('minlength')" style="color: red;">Variety Name must
+                    be at least 2 characters</div>
+                  <div *ngIf="varietyform.get('varietyName')?.hasError('maxlength')" style="color: red;">Maximum length
+                    exceeded (max 30 characters)</div>
+                  <div *ngIf="varietyform.get('varietyName')?.hasError('pattern')" style="color: red;">Please enter only
+                    letters and spaces.</div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Delivery Time</label>
+                <input type="text" class="form-control" placeholder="Last Name" formControlName="deliveryTime">
+                <div
+                  *ngIf="varietyform.get('deliveryTime')?.invalid && (varietyform.get('deliveryTime')?.dirty || varietyform.get('deliveryTime')?.touched)">
+                  <div *ngIf="varietyform.get('deliveryTime')?.hasError('required')" style="color: red;">Delivery Time Required</div>
+                  <div *ngIf="varietyform.get('deliveryTime')?.hasError('minlength')" style="color: red;">Delivery Time must
+                    be at least 2 characters</div>
+                  <div *ngIf="varietyform.get('deliveryTime')?.hasError('maxlength')" style="color: red;">Maximum length
+                    exceeded (max 30 characters)</div>
+                  <div *ngIf="varietyform.get('deliveryTime')?.hasError('pattern')" style="color: red;">Please enter
+                    only letters and spaces.</div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Cash On Delivery</label>
+                <input type="text" class="form-control" placeholder="User Name" formControlName="cashOnDelivery">
+
+                <div
+                  *ngIf="varietyform.get('cashOnDelivery')?.invalid && (varietyform.get('cashOnDelivery')?.dirty || varietyform.get('cashOnDelivery')?.touched)">
+                  <div *ngIf="varietyform.get('cashOnDelivery')?.hasError('required')" style="color: red;">Cash On Delivery Required</div>
+                  <div *ngIf="varietyform.get('cashOnDelivery')?.hasError('minlength')" style="color: red;">Cash On Delivery
+                    must be at least 4 characters</div>
+                  <div *ngIf="varietyform.get('cashOnDelivery')?.hasError('maxlength')" style="color: red;">Maximum
+                    length exceeded (max 20 characters)</div>
+                  <div *ngIf="varietyform.get('cashOnDelivery')?.hasError('pattern')" style="color: red;">Please enter
+                    only letters and numbers Spaces and Special Character not Allowed</div>
+                </div>
+              </div>
+
+
+
+              </div>
+
+              <div class="" style="width: 50%; padding: 10px;">
+
+
+                <div class="mb-3">
+                  <label class="form-label">Variety Image</label>
+                  <input type="file" class="form-control" (change)="onFileChange($event)" formControlName="varietyImage">
+                  <div
+                    *ngIf="varietyform.get('varietyImage')?.invalid && (varietyform.get('varietyImage')?.dirty || varietyform.get('varietyImage')?.touched)">
+                    <div *ngIf="varietyform.get('varietyImage')?.hasError('required')" style="color: red;">
+                      Variety Image Required
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                  <label for="exampleInputEmail1" class="form-label">Price</label>
+                  <input type="text" class="form-control" placeholder="User Name" formControlName="price">
+
+                  <div
+                    *ngIf="varietyform.get('price')?.invalid && (varietyform.get('price')?.dirty || varietyform.get('price')?.touched)">
+                    <div *ngIf="varietyform.get('price')?.hasError('required')" style="color: red;">Price Required
+                    </div>
+                    <div *ngIf="varietyform.get('price')?.hasError('maxlength')" style="color: red;">Maximum length
+                      exceeded (max 10 characters)</div>
+                  </div>
+
+
+
+
+
+                <div class="mb-3 mt-4">
+
+                  <button type="submit" class="btn btn-primary" [disabled]="varietyform.invalid">Submit</button>
+                </div>
+              </div>
+
+
+
+
+            </div>
+
+
+
+
+
+
+          </div>
+
+        </div>
+
+
+      </form>
+
+    </div>
+  </div>
+</div>
+<!--  Body Wrapper End -->

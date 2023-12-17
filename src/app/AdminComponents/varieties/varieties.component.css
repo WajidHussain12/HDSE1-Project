@@ -1,0 +1,27 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+.card-text1{
+  overflow: hidden;
+  height: 4rem;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: white;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #676666;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #464646;
+}

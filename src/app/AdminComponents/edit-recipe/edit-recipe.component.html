@@ -1,0 +1,198 @@
+<!--  Body Wrapper Start -->
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+  data-sidebar-position="fixed" data-header-position="fixed">
+
+  <!--  Sidebar component start -->
+  <app-sidebar></app-sidebar>
+  <!--  Sidebar component End-->
+
+  <!--  Main wrapper -->
+  <div class="body-wrapper">
+
+    <!--  Header Component Start -->
+    <app-nav></app-nav>
+    <!--  Header Component End -->
+    <div class="container-fluid">
+
+
+      <form [formGroup]="recipeForm" (ngSubmit)="save()">
+        <div class="editform"
+          style="box-shadow: 1px 1px 30px 1px rgba(0, 0, 0, 0.463);padding: 15px; border-radius: 10px;">
+
+          <div class="mb-4">
+            <h1 style="border-radius: 8px; font-weight: bold;" class="text-warning">Edit <span
+                style="color:black">Recipe</span></h1>
+          </div>
+          <div class="d-flex">
+
+            <div class="" style="width: 50%; padding: 10px;">
+
+
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Recipe Name</label>
+                <input type="text" class="form-control" placeholder="Recipe Name" formControlName="flavorName">
+                <div
+                  *ngIf="recipeForm.get('flavorName')?.invalid && (recipeForm.get('flavorName')?.dirty || recipeForm.get('flavorName')?.touched)">
+                  <div *ngIf="recipeForm.get('flavorName')?.hasError('required')" style="color: red;">Recipe Name
+                    Required
+                  </div>
+                  <div *ngIf="recipeForm.get('flavorName')?.hasError('minlength')" style="color: red;">Recipe Name must
+                    be
+                    at
+                    least 5 characters</div>
+                  <div *ngIf="recipeForm.get('flavorName')?.hasError('maxlength')" style="color: red;">Maximum length
+                    exceeded (max 30 characters)</div>
+                  <div *ngIf="recipeForm.get('flavorName')?.hasError('pattern')" style="color: red;">Please enter only
+                    letters and spaces.</div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Cooking Time</label>
+                <input type="text" class="form-control" placeholder="Cooking Time" formControlName="cookingTime">
+
+                <div
+                  *ngIf="recipeForm.get('cookingTime')?.invalid && (recipeForm.get('cookingTime')?.dirty || recipeForm.get('cookingTime')?.touched)">
+                  <div *ngIf="recipeForm.get('cookingTime')?.hasError('required')" style="color: red;">Cooking Time
+                    Required
+                  </div>
+                  <div *ngIf="recipeForm.get('cookingTime')?.hasError('minlength')" style="color: red;">Cooking Time
+                    must be
+                    at
+                    least 6 characters</div>
+                  <div *ngIf="recipeForm.get('cookingTime')?.hasError('maxlength')" style="color: red;">Maximum length
+                    exceeded (max 40 characters)</div>
+                  <div *ngIf="recipeForm.get('cookingTime')?.hasError('pattern')" style="color: red;">Please enter only
+                    letters and numbers.</div>
+                </div>
+
+              </div>
+
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Ingredients</label>
+                <textarea class="form-control mb-3" rows="3" placeholder="Ingredients"
+                  formControlName="ingredients"></textarea>
+                <div
+                  *ngIf="recipeForm.get('ingredients')?.invalid && (recipeForm.get('ingredients')?.dirty || recipeForm.get('ingredients')?.touched)">
+                  <div *ngIf="recipeForm.get('ingredients')?.hasError('required')" style="color: red;">Ingredients
+                    Required
+                  </div>
+                  <div *ngIf="recipeForm.get('ingredients')?.hasError('minlength')" style="color: red;">Ingredients must
+                    be
+                    at least 20 characters</div>
+
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Instructions</label>
+                <textarea class="form-control mb-3" rows="3" placeholder="Instructions "
+                  formControlName="instructions"></textarea>
+                <div
+                  *ngIf="recipeForm.get('instructions')?.invalid && (recipeForm.get('instructions')?.dirty || recipeForm.get('instructions')?.touched)">
+                  <div *ngIf="recipeForm.get('instructions')?.hasError('required')" style="color: red;">Instructions
+                    Required
+                  </div>
+                  <div *ngIf="recipeForm.get('instructions')?.hasError('minlength')" style="color: red;">Instructions
+                    must
+                    be
+                    at least 30 characters</div>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Calories</label>
+                <div class="input-group">
+                  <input type="Text" class="form-control" placeholder="Calories" formControlName="calories">
+                </div>
+                <div
+                  *ngIf="recipeForm.get('calories')?.invalid && (recipeForm.get('calories')?.dirty || recipeForm.get('calories')?.touched)">
+                  <div *ngIf="recipeForm.get('calories')?.hasError('required')" style="color: red;">
+                    Calories Required
+                  </div>
+                  <div *ngIf="recipeForm.get('calories')?.hasError('minlength')" style="color: red;">
+                    Calories must be at least 4 characters
+                  </div>
+                  <div *ngIf="recipeForm.get('calories')?.hasError('maxlength')" style="color: red;">
+                    Maximum length
+                    exceeded (max 40 characters)
+                  </div>
+                  <div *ngIf="recipeForm.get('calories')?.hasError('pattern')" style="color: red;">
+                    Please enter only letters and numbers Special characters are not allowed
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+
+
+            <div class="" style="width: 50%; padding: 10px;">
+
+              <div class="mb-2"
+                style="box-shadow: 1px 1px 30px 1px rgba(0, 0, 0, 0.463); border-radius: 10px; padding: 15px;">
+
+                <div class="mb-3">
+                  <label class="form-label">Uploaded image</label>
+                  <input class="form-control mb-2" type="text" value={{ResponseDatabaseImgae}}
+                    aria-label="Disabled input example" disabled readonly>
+                  <img [src]="recipeImageFile" alt="Recipe Image" [style.height.px]="80">
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Upload New image</label>
+                  <input type="file" class="form-control" (change)="onFileSelected($event)">
+                </div>
+              </div>
+
+              <div class="mb-2"
+                style="box-shadow: 1px 1px 30px 1px rgba(0, 0, 0, 0.463); border-radius: 10px; padding: 15px;">
+
+
+                <div class="mb-3">
+                  <label class="form-label">Uploaded Recipe Banner Image</label>
+                  <input class="form-control mb-2" type="text" value={{ResponseDatabaseImgae1}}
+                    aria-label="Disabled input example" disabled readonly>
+                  <img [src]="recipeBannerImageFile" alt="Recipe Image" [style.height.px]="80">
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Upload New Recipe Banner image</label>
+                  <input type="file" class="form-control" (change)="onFileSelected1($event)">
+                </div>
+              </div>
+              <div class=""
+                style="box-shadow: 1px 1px 30px 1px rgba(0, 0, 0, 0.463); border-radius: 10px; padding: 15px;">
+
+
+                <div class="mb-3">
+                  <label class="form-label">Uploaded Variety Banner image</label>
+                  <input class="form-control mb-2" type="text" value={{ResponseDatabaseImgae2}}
+                    aria-label="Disabled input example" disabled readonly>
+                  <img [src]="recipeflavourImageFile" alt="Recipe Image" [style.height.px]="80">
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Upload New Variety Banner image</label>
+                  <input type="file" class="form-control" (change)="onFileSelected2($event)">
+                </div>
+
+                <div class="mb-3 mt-4">
+                  <button type="submit" class="btn btn-warning" [disabled]="recipeForm.invalid">Update</button>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+
+        </div>
+
+
+      </form>
+
+      <!-- <a  class="btn btn-danger" (click)="setImage()">Image</a> -->
+    </div>
+  </div>
+</div>
+<!--  Body Wrapper End -->

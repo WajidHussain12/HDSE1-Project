@@ -1,0 +1,245 @@
+<!--  Body Wrapper Start -->
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+  data-sidebar-position="fixed" data-header-position="fixed">
+
+  <!--  Sidebar component start -->
+  <app-sidebar></app-sidebar>
+  <!--  Sidebar component End-->
+
+  <!--  Main wrapper -->
+  <div class="body-wrapper">
+
+    <!--  Header Component Start -->
+    <app-nav></app-nav>
+    <!--  Header Component End -->
+    <div class="container-fluid">
+      <!-- Registered Users Table Start -->
+      <!-- Striped Rows -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">
+              <div class="" style="display: flex; justify-content: space-between">
+                <h5 class="card-header">User's Recipes</h5>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+
+              <div class="card-group">
+                <div *ngFor="let i of RecipesData" class="col-sm-4 mb-3 mb-sm-0 px-3"
+                  style="border-radius: 10px; margin-top: 20px;text-align: center;">
+                  <div class="card">
+                    <div *ngIf="i.image" class="image-container">
+                      <img [src]="i.image" class="card-img-top" alt="..." [style.height.px]="304" />
+                    </div>
+
+                    <!-- <img src={{i.image}} class="card-img-top" alt="..." /> -->
+                    <div class="card-body">
+                      <h4 class="card-title">
+                        <h4>Recipe Name:</h4>
+                      </h4>
+                      <h6>{{i.Recipe_Name}}</h6>
+                      <!-- <h4>Instructions:</h4> -->
+                      <!-- Inside *ngFor loop -->
+                      <!-- <div class="card-text1" id="minCard">{{i.Instructions}}</div> -->
+                      <button type="button" (click)="showMore(i.id)" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#staticBackdrop">
+                        Show More
+                      </button>
+                      <!--
+                      <div class="show-more" (click)="showMore(i.id)">Show More</div> -->
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item"><strong>User Name:</strong> {{i.Author_Name}}</li>
+                      <li class="list-group-item"><strong>Recipe ID:</strong> {{i.id}}</li>
+                    </ul>
+                    <div class="card-body" style="display: flex; justify-content: center;">
+
+                      <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1"
+                        (click)="getUserRecipeId(i.id)" style="margin-right: 10px;">Add To Menu</a>
+
+                      <a class="btn btn-warning" style="margin-right: 10px;" data-bs-toggle="modal" data-bs-target="#exampleModal2"
+                      (click)="getUserRecipeId(i.id)">Add To Winner</a>
+
+                      <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                        (click)="getDeleteId(i.id)">Delete Recipe</a>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!--/ Striped Rows -->
+      <!-- Registered Users Table End -->
+
+
+    </div>
+  </div>
+</div>
+
+<!-- Button trigger modal -->
+
+
+<!-- All Detail Modal -->
+<div class="modal fade modal-dialog-scrollable" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+  tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel">{{Recipe_Name}}</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <ng-container *ngIf="image">
+          <img [src]="[image]" class="card-img-top" alt="..." [style.height.px]="304" />
+        </ng-container>
+        <h4>Instructions</h4>
+        <p>{{Instructions}}</p>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item"><strong>Ingredients: </strong>{{Ingredients}} </li>
+          <li class="list-group-item"><strong>Recipe ID: </strong>{{RecipeID}}</li>
+          <li class="list-group-item"><strong>User ID: </strong>
+            {{UserID}}
+          </li>
+          <li class="list-group-item"><strong>User Name: </strong>{{UserName}}</li>
+          <li class="list-group-item"><strong>Cooking Time: </strong>{{Cooking_Time}} </li>
+          <li class="list-group-item"><strong>Calories: </strong>
+            {{
+            Calories
+            }}</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- Delete Model -->
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Record Delete</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <p><strong>Are you sure you want to delete <span class="text-primary">{{RecipeName}}</span> Recipe?</strong>
+        </p>
+        <p><strong>Recipe ID <strong class="text-danger" style="color: red !important;">{{RecipeId}}</strong></strong>
+        </p>
+        <p><strong>Author Name <strong class="text-danger"
+              style="color: red !important;">{{AuthorName}}</strong></strong></p>
+        <p> All information associated to this Recipe will be permanently deleted. <span
+            style="color: red !important; font-weight: bold;" class="text-danger">This
+            operation can not be undone.</span></p>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger customDeleteBtn" data-bs-dismiss="modal"
+          (click)="ConfirmDelete()">Delete
+          Record</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Add To Menu Model -->
+
+<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add To Menu</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+
+
+        <p><strong>Are you sure you want to Add <span class="text-primary">{{userRecipeName}}</span> Recipe To
+            Menu</strong>
+        </p>
+        <p><strong>User Recipe ID <strong class="text-danger"
+              style="color: red !important;">{{userRecipeId}}</strong></strong>
+        </p>
+        <p><strong>Recipe Author Name <span class="text-primary">{{userRecipeAuthorName}}</span></strong>
+        </p>
+        <p><strong>Recipe Author ID <strong class="text-danger"
+              style="color: red !important;">{{userRecipeAuthorId}}</strong></strong>
+        </p>
+
+
+
+      </div>
+
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-danger customDeleteBtn" data-bs-dismiss="modal"
+          (click)="ConfirmAddToMenu()">Add To Menu</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Add To Winner List Model -->
+
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Add To Winner List</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+
+
+        <p><strong>Are you sure you want to Add <span class="text-primary">{{userRecipeName}}</span> Recipe To
+            Winner List</strong>
+        </p>
+        <p><strong>User Recipe ID <strong class="text-danger"
+              style="color: red !important;">{{userRecipeId}}</strong></strong>
+        </p>
+        <p><strong>Recipe Author Name <span class="text-primary">{{userRecipeAuthorName}}</span></strong>
+        </p>
+        <p><strong>Recipe Author ID <strong class="text-danger"
+              style="color: red !important;">{{userRecipeAuthorId}}</strong></strong>
+        </p>
+
+
+
+      </div>
+
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-warning " data-bs-dismiss="modal"
+          (click)="ConfirmAddToWinner()">Add To Winner</button>
+      </div>
+    </div>
+  </div>
+</div>
