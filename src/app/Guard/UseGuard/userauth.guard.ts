@@ -19,9 +19,12 @@ export const userauthGuard: CanActivateFn = (route, state) => {
 
   if (jwtHelper.isTokenExpired(token)) {
     localStorage.removeItem('usertoken');
+    localStorage.removeItem('cart');
+    localStorage.removeItem('checkout');
+    router.navigate(['login']);
+    return false;
   }
 
-  router.navigate(['login']);
   return false;
 
 

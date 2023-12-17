@@ -1,5 +1,6 @@
 import { ProductService } from 'src/app/product.service';
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-shoppingcart',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoppingcartComponent implements OnInit {
 
-  constructor(private service: ProductService) { }
+  constructor(private service: ProductService, private Toast: ToastrService) { }
 
   cartData: any[] = [];
   sortedCartData: any[] = [];
@@ -259,7 +260,7 @@ export class ShoppingcartComponent implements OnInit {
     this.totalPrice = totalPrice;
 
     // Update local storage with the sortedCartData
-    localStorage.setItem('cart', JSON.stringify(this.sortedCartData));
+    // localStorage.setItem('cart', JSON.stringify(this.sortedCartData));
 
 
   }
@@ -291,40 +292,50 @@ export class ShoppingcartComponent implements OnInit {
   }
 
 
-  userloggedin: boolean = false
+  userloggedin: boolean = true
+  checkCartEmpty: boolean = false
+  checkcart: boolean = false
+
   userid: any
   getuserDetails() {
     var checkuser = localStorage.getItem("userid")
     if (checkuser) {
-      this.userloggedin = true
+      this.userloggedin = false
+      this.checkCartEmpty = true
+      this.checkcart = true
       this.userid = checkuser
     }
     else {
-      this.userloggedin = false
+      this.userloggedin = true
     }
 
   }
-
 
   removeItem(item: any) {
     // Get cart data from localStorage and parse it
     const getCartDataFromLocal: any[] = JSON.parse(localStorage.getItem('cart') || '[]');
 
-    // Find the index of the item with a matching ID in the cart array
-    const index = getCartDataFromLocal.findIndex((cartItem: any) => {
-      // Assuming 'bookid' is the ID you want to match
-      return cartItem.bookid === item.bookid || cartItem.VarietyID === item.VarietyID;
+    // Find the ids to match against
+    const idToMatch = item.bookid || item.VarietyID;
+
+    // Filter out items that match the specified id
+    const updatedCartData = getCartDataFromLocal.filter((cartItem: any) => {
+      return cartItem.bookid !== idToMatch && cartItem.VarietyID !== idToMatch;
     });
 
-    // Remove the item if found
-    if (index !== -1) {
-      getCartDataFromLocal.splice(index, 1);
-
+    // Check if any items were removed
+    if (updatedCartData.length < getCartDataFromLocal.length) {
       // Update localStorage with the modified cart data
-      localStorage.setItem('cart', JSON.stringify(getCartDataFromLocal));
-this.ngOnInit()
+      localStorage.setItem('cart', JSON.stringify(updatedCartData));
+
+      this.Toast.error('Removed From Cart', 'Product', {
+        positionClass: 'toast-top-left'
+      });
+
+      this.ngOnInit();
     }
   }
+
 
 
 

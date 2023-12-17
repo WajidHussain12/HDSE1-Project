@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { ProductService } from 'src/app/product.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class UserbooksComponent {
   booksImageFile: any
 
 
-  constructor(private route: ActivatedRoute, private productService: ProductService) { }
+  constructor(private route: ActivatedRoute, private productService: ProductService, private Toast: ToastrService, private Router: Router) { }
   bookimgData: any
   bookFile: any
   ngOnInit(): void {
@@ -70,14 +71,29 @@ export class UserbooksComponent {
 
 
   bookAddtoCart(book: any) {
-    const existingCartItemsString = localStorage.getItem('cart');
-    const existingCartItems = existingCartItemsString ? JSON.parse(existingCartItemsString) : [];
 
-    // Add the book to the array
-    existingCartItems.push(book);
+    const usertoken = localStorage.getItem("usertoken")
+    const userName = localStorage.getItem("UserName")
+    const userid = localStorage.getItem("userid")
 
-    // Store the updated array in local storage
-    localStorage.setItem('cart', JSON.stringify(existingCartItems));
+    if (usertoken && userName && userid) {
+      const existingCartItemsString = localStorage.getItem('cart');
+      const existingCartItems = existingCartItemsString ? JSON.parse(existingCartItemsString) : [];
+
+      // Add the book to the array
+      existingCartItems.push(book);
+
+      // Store the updated array in local storage
+      localStorage.setItem('cart', JSON.stringify(existingCartItems));
+      this.Toast.success('Added To Cart', 'Book', {
+        positionClass: 'toast-top-left'
+      });
+    }
+
+    else {
+      this.Router.navigate(["/login"])
+
+    }
 
     // console.log(book)
   }

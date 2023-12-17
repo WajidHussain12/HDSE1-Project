@@ -1,4 +1,6 @@
 import { Component, AfterViewInit, ElementRef } from '@angular/core';
+import { JwtHelperService } from '@auth0/angular-jwt';
+
 
 @Component({
   selector: 'app-main',
@@ -36,6 +38,7 @@ export class MainComponent implements AfterViewInit {
 
   ngOnInit() {
     this.typeWriter();
+    this.clearUserAndCartLocal()
   }
 
   private typeWriter() {
@@ -49,5 +52,20 @@ export class MainComponent implements AfterViewInit {
     }
   }
 
+
+
+
+  clearUserAndCartLocal() {
+    const token = localStorage.getItem('usertoken');
+    const jwtHelper = new JwtHelperService();
+
+    if (jwtHelper.isTokenExpired(token)) {
+      localStorage.removeItem('UserName');
+      localStorage.removeItem('cart');
+      localStorage.removeItem('checkout');
+      localStorage.removeItem('userid');
+      localStorage.removeItem('usertoken');
+    }
+  }
 
 }

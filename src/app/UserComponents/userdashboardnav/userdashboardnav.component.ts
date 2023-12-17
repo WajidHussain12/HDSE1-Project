@@ -18,6 +18,9 @@ export class UserdashboardnavComponent implements OnInit {
   userlogout() {
     localStorage.removeItem("UserName")
     localStorage.removeItem("usertoken")
+    localStorage.removeItem("cart")
+    localStorage.removeItem("checkout")
+    localStorage.removeItem("userid")
     this.Router.navigate([''])
   }
 

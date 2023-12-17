@@ -42,7 +42,7 @@ const routes: Routes = [
 { path: "adminlogin",canActivate:[adminRouteCheckGuard], component:AdminloginComponent},
 { path: "usersidebar", component:UsersidebarComponent },
 { path: "userdemo", component:DemoDashboardComponent },
-{ path: "checkout/:id", component:CheckoutComponent },
+{ path: "checkout/:id",canActivate:[userauthGuard], component:CheckoutComponent },
 
 ];
 

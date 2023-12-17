@@ -37,7 +37,7 @@
                   </th>
                 </tr>
               </thead>
-              <tbody *ngIf="userloggedin; else elseBlock">
+              <tbody *ngIf="checkcart">
                 <tr *ngFor="let item of sortedCartData">
 
                   <input type="hidden" [(ngModel)]="item.bookid" name="bookid" />
@@ -48,14 +48,6 @@
                         [style.height.px]="100" [style.width.px]="70" alt="Decoded Image">
                     </ng-container>
                   </td>
-
-                  <!-- <td>
-                      <img [src]="item.DecodedImageFile" alt="{{ item.ProductName }} Image" class="card-img-top"
-                        [style.height.px]="100" [style.width.px]="70" />
-                      {{ item.DecodedImageFile | json }}
-                    </td> -->
-
-
 
 
                   <td class="border-0 align-middle text-uppercase" style="font-weight: bold;">{{item.ProductName }}</td>
@@ -75,13 +67,20 @@
                 </tr>
               </tbody>
 
-              <ng-template #elseBlock>
+
+
+              <div *ngIf="checkCartEmpty  && sortedCartData.length===0">
                 <!-- Content to show when userid is falsy -->
-                <tbody>
-                  <!-- Your else content goes here -->
-                  <h2 class="text-center" style="font-weight: bolder;">Cart is Empty</h2>
-                </tbody>
-              </ng-template>
+
+                <!-- Your else content goes here -->
+                <h2 class="text-center" style="font-weight: bolder;">Cart is Empty</h2>
+
+              </div>
+
+              <!-- Login message for users not logged in -->
+              <div class="text-center" *ngIf="userloggedin">
+                <p>Please Log In</p>
+              </div>
 
 
             </table>
