@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 import { ProductService } from 'src/app/product.service';
 
@@ -21,7 +22,10 @@ export class HeaderComponent {
 
   // allFlavorData: any
 
-  constructor(private router: Router, private productService: ProductService, private cdr: ChangeDetectorRef) { }
+  constructor(private router: Router, private productService: ProductService, private cdr: ChangeDetectorRef)
+  {
+    this.clearUserAndCartLocal()
+  }
 
   cartupdate: any
   ngOnInit(): void {
@@ -116,6 +120,19 @@ export class HeaderComponent {
 
   }
 
+
+  clearUserAndCartLocal() {
+    const token = localStorage.getItem('usertoken');
+    const jwtHelper = new JwtHelperService();
+
+    if (jwtHelper.isTokenExpired(token)) {
+      localStorage.removeItem('UserName');
+      localStorage.removeItem('cart');
+      localStorage.removeItem('checkout');
+      localStorage.removeItem('userid');
+      localStorage.removeItem('usertoken');
+    }
+  }
 
 
 

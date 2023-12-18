@@ -23,8 +23,12 @@
                                 <label for="Password"><i class="bi bi-lock-fill"></i></label>
                                 <input type="password"   placeholder="Password" formControlName="password"/>
                             </div>
+                            <div class="" *ngIf="notFound" style="color: red">
+                              Incorrect Credentials
+                            </div>
                             <button type="submit" class="btn btn-primary">Login</button>
                         </form>
+
                         <div *ngIf="loginSuccess" class="success-message">
                           <i class="bi bi-check-circle-fill"></i>
                           <span style="padding-left: 10px;">{{ successMessage }}</span>

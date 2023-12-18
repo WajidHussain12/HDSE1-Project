@@ -12,6 +12,7 @@ namespace iceCreamWenApi.Models
         public DbSet<Book> books { get; set; } = null;
 
         public DbSet<Order> orders { get; set; } = null;
+        public DbSet<Product> products { get; set; } = null;
 
         public DbSet<Recipe> recipes { get; set; }
 

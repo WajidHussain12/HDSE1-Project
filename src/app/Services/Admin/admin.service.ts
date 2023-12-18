@@ -60,6 +60,11 @@ export class AdminService {
     return this.request.get(this.orderApi);
   }
 
+  getOrderProducts(orderId: number, userID: number){
+    return this.request.get(`${this.orderApi}/${orderId},${userID}`)
+}
+
+
 
 
   // Recipes Methods

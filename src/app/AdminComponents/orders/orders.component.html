@@ -22,46 +22,44 @@
                 <th>Order ID</th>
                 <th>Customer ID</th>
                 <th>Customer Name</th>
-                <th>Order Date</th>
-                <th>Products</th>
-                <th>Total Amount</th>
+                <th>Customer Email</th>
                 <th>Shipping Adddress</th>
+                <th>User Contact</th>
+                <th>Sub Total</th>
+                <th>Grand Total</th>
+                <th>Order Date</th>
                 <th>Order Status</th>
-                <th>Actions</th>
+
+                <th>Products</th>
+
               </tr>
             </thead>
             <tbody *ngFor="let i of OrderData" class="table-border-bottom-0">
               <tr>
                 <td class="text-center">{{i.orderid}}</td>
                 <td class="text-center">{{i.customer_ID}}</td>
-                <td class="text-center">{{i.custome_Name}}</td>
-                <td class="text-center">{{i.order_Date}}</td>
-                <td class="text-center">{{i.products}}</td>
-                <td class="text-center">{{i.total_Amount}}</td>
+                <td class="text-center">{{i.customer_Name}}</td>
+                <td class="text-center">{{i.customer_email}}</td>
                 <td class="text-center">{{i.shipping_Adddress}}</td>
+                <td class="text-center">{{i.userContact}}</td>
+                <td class="text-center">{{i.subTotal}}</td>
+                <td class="text-center">{{i.grandTotal}}</td>
+                <td class="text-center">{{i.orderDate}}</td>
                 <div style="display: flex; justify-content: center; align-items: center;">
-                  <span style="margin-right: 5px; color: #810CA8;" class="material-symbols-outlined">running_with_errors</span>
+                  <span style="margin-right: 5px; color: #810CA8;"
+                    class="material-symbols-outlined">running_with_errors</span>
                   <td class="text-center">{{i.order_Status}}</td>
                 </div>
+
                 <td>
                   <div class="dropdown">
                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                       <i class="mdi mdi-dots-vertical"></i>
                     </button>
-                    <div class="dropdown-menu">
+                    <div class="dropdown-menu" (click)="orderProducts(i.orderid,i.customer_ID)" data-bs-toggle="modal" data-bs-target="#exampleModal">
                       <div class="dropCustom" style="display: flex; justify-content: center; align-items: center;">
                         <span style="color: #2F58CD;" class="material-symbols-outlined">local_shipping</span>
-                        <a style="padding: 10px;">On The Way</a>
-                      </div>
-                      <div class="dropCustom" style="display: flex; justify-content: center; align-items: center;">
-                        <span style="color: green;" class="material-symbols-outlined">quick_reorder</span>
-                        <a style="padding: 10px;">Delivered</a>
-                      </div>
-                      <div class="dropCustom" style="display: flex; justify-content: center; align-items: center;">
-                        <span style="color: red;" class="material-symbols-outlined"><span class="material-symbols-outlined">
-                          cancel
-                          </span></span>
-                        <a style="padding: 10px;">Cancel</a>
+                        <a style="padding: 10px;">Products</a>
                       </div>
                     </div>
                   </div>
@@ -77,3 +75,37 @@
   </div>
 </div>
 <!--  Body Wrapper End -->
+
+
+
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content" style="padding: 30px;">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Product Id</th>
+            <th>Order Id</th>
+            <th>Customer Id</th>
+            <th>Product Name</th>
+            <th>Product Quantity</th>
+            <th>Item Total</th>
+            <th>Product Price</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let i of productData" class="table-border-bottom-0">
+          <td>{{i.productid}}</td>
+          <td>{{i.orderid}}</td>
+          <td>{{i.userID}}</td>
+          <td>{{i.productName}}</td>
+          <td>{{i.quantity}}</td>
+          <td>{{i.itemTotal}}</td>
+          <td>{{i.productPrice}}</td>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

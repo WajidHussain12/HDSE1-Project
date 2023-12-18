@@ -21,6 +21,8 @@ export class ProductService {
 
   addUserRecipeAPI: string = "https://localhost:7168/api/UserAddRecipeAPI"
 
+  UserOrderApi: string = "https://localhost:7168/api/UserOrderAPI"
+
 
   changeCart: any = 0
 
@@ -91,6 +93,13 @@ export class ProductService {
 
   add_User_Recipe(recipe: any) {
     return this.http.post(this.addUserRecipeAPI, recipe)
+  }
+
+  // order Method
+
+
+  createOrder(Order: any) {
+    return this.http.post(this.UserOrderApi,Order)
   }
 
 }

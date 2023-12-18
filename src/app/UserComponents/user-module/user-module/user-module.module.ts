@@ -15,6 +15,9 @@ import { NgxApexchartsModule } from 'ngx-apexcharts';
 import { ImageCropperModule } from 'ngx-image-cropper';
 
 
+
+
+
 @NgModule({
   declarations: [
     UsersidebarComponent,
@@ -23,7 +26,7 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     ShareRecipeComponent,
     UserordersComponent,
     UserprofileComponent,
-    UsersettingsComponent
+    UsersettingsComponent,
 
     // user
 

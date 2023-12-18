@@ -30,7 +30,7 @@ namespace iceCreamWenApi.Controllers.UserController
 
             if (data == null)
             {
-                return NotFound();
+                return Unauthorized();
             }
             else
             {

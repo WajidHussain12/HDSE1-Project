@@ -24,6 +24,25 @@ namespace iceCreamWenApi.Controllers.AdminController
             return Ok(data);
         }
 
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeleteBook(int id)
+        {
+            var book = await context.books.FindAsync(id);
+            if (book == null)
+            {
+                return BadRequest();
+            }
+            else
+            {
+                context.books.Remove(book);
+                context.SaveChanges();
+                return Ok(new
+                {
+                    Delete = "Book Deleted"
+                });
+            }
+        }
+
 
         [HttpPost]
         public async Task<IActionResult> Addbook([FromForm] BookAddModel book)
@@ -58,7 +77,7 @@ namespace iceCreamWenApi.Controllers.AdminController
                 await context.SaveChangesAsync();
                 return Ok(new
                 {
-                    Success="Book Added Successfully..."
+                    Success = "Book Added Successfully..."
                 });
 
             }

@@ -77,7 +77,7 @@ import { CheckoutComponent } from './Components/checkout/checkout.component';
     CommonModule,
     ImageCropperModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
     // [RouterModule.forRoot(routes)]
 
 

@@ -2,7 +2,7 @@ import { Router } from '@angular/router';
 import { ProductService } from 'src/app/product.service';
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -35,6 +35,7 @@ export class LoginComponent {
   // }
 
 
+  notFound: Boolean = false
 
 
   loginUser() {
@@ -54,9 +55,9 @@ export class LoginComponent {
     //   console.log("FromData", key, value);
     // });
 
-
     this.ProductService.Userlogin(formData).subscribe((data: any) => {
       var d: any = [data]
+
 
 
       var firstName = d[0]['userdata']['firstName'];
@@ -78,10 +79,22 @@ export class LoginComponent {
 
 
       this.router.navigate([`user/dashboard/${userid}`])
-      console.log("token",jwTtoken)
+      console.log("token", jwTtoken)
       // console.log(firstName)
       // console.log(data)
-    })
+    },(error) => {
+      // Handle error responses here
+      if (error instanceof HttpErrorResponse) {
+        if (error.status === 401) {
+          console.log("Wrong Password");
+          this.notFound = true
+        } else {
+          console.error("An error occurred:", error);
+        }
+      }
+    }
+
+    )
 
 
 

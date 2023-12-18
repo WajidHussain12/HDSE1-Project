@@ -12,21 +12,28 @@ namespace iceCreamWenApi.Models
         public int customer_ID { get; set; }
         [Required]
 
-        public string custome_Name { get; set; }
+        public string customer_Name { get; set; }
         [Required]
-
-        public DateTime order_Date { get; set; }
+        public string customer_email { get; set; }
         [Required]
-
-        public string products { get; set; }
-        [Required]
-
-        public long total_Amount { get; set; }
-        [Required]
-
         public string shipping_Adddress { get; set; }
         [Required]
 
+        public string UserContact { get; set; }
+        [Required]
+
+        public List<Product> Products { get; set; }
+        [Required]
+
+        public long SubTotal { get; set; }
+        [Required]
+
+        public long GrandTotal { get; set; }
+
+        [Required]
+        public DateTime OrderDate { get; set; }
+
+        [Required]
         public string order_Status { get; set; }
     }
 }

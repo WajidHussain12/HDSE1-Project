@@ -25,7 +25,6 @@ namespace iceCreamWenApi.Models
 
         [Required]
         public string calories { get; set; }
-        [Required]
-        public string userRecipeImage { get; set; }
+        
     }
 }

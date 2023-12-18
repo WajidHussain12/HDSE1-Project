@@ -1,7 +1,17 @@
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/product.service';
 import { FormBuilder } from '@angular/forms';
+import { forEach } from 'jszip';
+import { data } from 'jquery';
+import { ToastrService } from 'ngx-toastr';
+
+interface ProductDto {
+  productName: string;
+  productPrice: number;
+  quantity: number;
+  SubTotal: number;
+}
 
 @Component({
   selector: 'app-checkout',
@@ -10,8 +20,7 @@ import { FormBuilder } from '@angular/forms';
 })
 export class CheckoutComponent implements OnInit {
 
-  constructor(private Servie: ProductService, private ActivatedRoute: ActivatedRoute, private FormBuilder: FormBuilder) {
-
+  constructor(private Servie: ProductService, private ActivatedRoute: ActivatedRoute, private FormBuilder: FormBuilder,private Router:Router,private Toast:ToastrService) {
   }
 
   ngOnInit(): void {
@@ -120,16 +129,23 @@ export class CheckoutComponent implements OnInit {
 
 
 
-
+  UserID: any
+  UserName: any
+  Useremail: any
   UserAddress: any
   UserContact: any
 
   getuserdata() {
     this.ActivatedRoute.params.subscribe((data: any) => {
       const userid = data['id']
+      this.UserID = data['id']
       this.Servie.getuserData(userid).subscribe((data: any) => {
+
         this.UserAddress = data['address']
         this.UserContact = data['contact']
+        this.UserName = data['userName']
+        this.Useremail = data['email']
+
         this.userCheckoutForm = this.FormBuilder.group({
           userName: [data['userName']],
           email: [data['email']],
@@ -142,8 +158,110 @@ export class CheckoutComponent implements OnInit {
   }
 
 
+
+
+
   save() {
 
+    localStorage.removeItem("cart")
+    localStorage.removeItem("checkout")
+
+    this.Router.navigate(['/'])
+    this.Toast.success("","Your Order Placed");
+    const checkoutData = localStorage.getItem("checkout");
+
+    if (checkoutData) {
+      const checkoutParseData = JSON.parse(checkoutData);
+
+      const orderData = {
+        UserID: this.UserID,
+        UserName: this.UserName,
+        Useremail: this.Useremail,
+        UserAddress: this.UserAddress,
+        UserContact: this.UserContact,
+        products: [],
+        SubTotal: 0,
+        grandTotal: 0,
+        OrderDate: new Date(),
+        order_Status: "In Process"
+      };
+
+      const orderD = orderData as {
+        products: any[]
+        SubTotal: number
+        grandTotal: number
+      }
+
+      checkoutParseData.forEach((element: any) => {
+        const product = {
+          productName: element.ProductName,
+          productPrice: element.price,
+          quantity: element.quantity,
+          itemTotal: element.price * element.quantity,
+          userID: this.UserID,
+          OrderDate: new Date(),
+          SubTotal:element.SubTotal,
+        };
+        console.log("Product",product)
+
+        orderD.products.push(product);
+        orderD.SubTotal = product.SubTotal;
+        orderD.grandTotal = element.grandTotal;
+      });
+
+      console.log("orderData", orderData)
+      this.Servie.createOrder(orderData).subscribe(
+        (data: any) => {
+          console.log(data);
+        },
+        (error: any) => {
+          console.error('Error creating order:', error);
+        }
+      );
+
+    }
   }
+
+
+
+
+
+
+  // save() {
+
+  //   const checkoutData = localStorage.getItem("checkout");
+
+  //   if (checkoutData) {
+  //     const checkoutParseData = JSON.parse(checkoutData);
+
+  //     checkoutParseData.forEach((element: any) => {
+  //       const productName = element.ProductName
+  //       const productPrice = element.price
+  //       const quantity = element.quantity
+  //       const SubTotal = element.SubTotal
+  //       const grandTotal = element.grandTotal
+
+
+  //       var formData = new FormData
+
+  //       formData.append("UserName", this.UserName)
+  //       formData.append("Useremail", this.Useremail)
+  //       formData.append("UserAddress", this.UserAddress)
+  //       formData.append("UserContact", this.UserContact)
+
+
+  //       formData.append("productName", productName)
+  //       formData.append("productPrice", productPrice)
+  //       formData.append("quantity", quantity)
+  //       formData.append("SubTotal", SubTotal)
+  //       formData.append("grandTotal", grandTotal)
+
+  //     });
+
+  //     console.log(checkoutParseData);
+  //   }
+  // }
+
+
 
 }

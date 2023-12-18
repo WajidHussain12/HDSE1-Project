@@ -12,7 +12,7 @@ using iceCreamWenApi.Models;
 namespace iceCreamWenApi.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231215010336_init")]
+    [Migration("20231218083125_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -95,21 +95,31 @@ namespace iceCreamWenApi.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("orderid"), 1L, 1);
 
-                    b.Property<string>("custome_Name")
+                    b.Property<long>("GrandTotal")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTime>("OrderDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<long>("SubTotal")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("UserContact")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("customer_ID")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("order_Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("order_Status")
+                    b.Property<string>("customer_Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("products")
+                    b.Property<string>("customer_email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("order_Status")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -117,12 +127,46 @@ namespace iceCreamWenApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("total_Amount")
-                        .HasColumnType("bigint");
-
                     b.HasKey("orderid");
 
                     b.ToTable("orders");
+                });
+
+            modelBuilder.Entity("iceCreamWenApi.Models.Product", b =>
+                {
+                    b.Property<int>("Productid")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Productid"), 1L, 1);
+
+                    b.Property<DateTime>("OrderDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("itemTotal")
+                        .HasColumnType("int");
+
+                    b.Property<int>("orderid")
+                        .HasColumnType("int");
+
+                    b.Property<string>("productName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("productPrice")
+                        .HasColumnType("int");
+
+                    b.Property<int>("quantity")
+                        .HasColumnType("int");
+
+                    b.Property<int>("userID")
+                        .HasColumnType("int");
+
+                    b.HasKey("Productid");
+
+                    b.HasIndex("orderid");
+
+                    b.ToTable("products");
                 });
 
             modelBuilder.Entity("iceCreamWenApi.Models.Recipe", b =>
@@ -233,10 +277,6 @@ namespace iceCreamWenApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("userRecipeImage")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("winnerRecipeid");
 
                     b.ToTable("recipeWinners");
@@ -330,10 +370,6 @@ namespace iceCreamWenApi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("userRecipeImage")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("userRecipeid");
 
                     b.ToTable("userRecipes");
@@ -380,6 +416,17 @@ namespace iceCreamWenApi.Migrations
                     b.ToTable("varieties");
                 });
 
+            modelBuilder.Entity("iceCreamWenApi.Models.Product", b =>
+                {
+                    b.HasOne("iceCreamWenApi.Models.Order", "Order")
+                        .WithMany("Products")
+                        .HasForeignKey("orderid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+                });
+
             modelBuilder.Entity("iceCreamWenApi.Models.Varieties", b =>
                 {
                     b.HasOne("iceCreamWenApi.Models.Recipe", "Recipe")
@@ -389,6 +436,11 @@ namespace iceCreamWenApi.Migrations
                         .IsRequired();
 
                     b.Navigation("Recipe");
+                });
+
+            modelBuilder.Entity("iceCreamWenApi.Models.Order", b =>
+                {
+                    b.Navigation("Products");
                 });
 
             modelBuilder.Entity("iceCreamWenApi.Models.Recipe", b =>
