@@ -43,7 +43,7 @@
             <div class="" style="width: 50%; padding: 10px;">
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Variety Name</label>
-                <input type="text" class="form-control" placeholder="First Name" formControlName="varietyName">
+                <input type="text" class="form-control" placeholder="Variety Name" formControlName="varietyName">
                 <div
                   *ngIf="varietyform.get('varietyName')?.invalid && (varietyform.get('varietyName')?.dirty || varietyform.get('varietyName')?.touched)">
                   <div *ngIf="varietyform.get('varietyName')?.hasError('required')" style="color: red;">Variety Name Required</div>
@@ -58,7 +58,7 @@
 
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Delivery Time</label>
-                <input type="text" class="form-control" placeholder="Last Name" formControlName="deliveryTime">
+                <input type="text" class="form-control" placeholder="Delivery Time" formControlName="deliveryTime">
                 <div
                   *ngIf="varietyform.get('deliveryTime')?.invalid && (varietyform.get('deliveryTime')?.dirty || varietyform.get('deliveryTime')?.touched)">
                   <div *ngIf="varietyform.get('deliveryTime')?.hasError('required')" style="color: red;">Delivery Time Required</div>
@@ -73,7 +73,7 @@
 
               <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Cash On Delivery</label>
-                <input type="text" class="form-control" placeholder="User Name" formControlName="cashOnDelivery">
+                <input type="text" class="form-control" placeholder="Cash On Delivery" formControlName="cashOnDelivery">
 
                 <div
                   *ngIf="varietyform.get('cashOnDelivery')?.invalid && (varietyform.get('cashOnDelivery')?.dirty || varietyform.get('cashOnDelivery')?.touched)">
@@ -107,7 +107,7 @@
 
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label">Price</label>
-                  <input type="text" class="form-control" placeholder="User Name" formControlName="price">
+                  <input type="number" class="form-control" placeholder="Price" formControlName="price">
 
                   <div
                     *ngIf="varietyform.get('price')?.invalid && (varietyform.get('price')?.dirty || varietyform.get('price')?.touched)">

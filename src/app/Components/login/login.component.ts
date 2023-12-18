@@ -77,7 +77,7 @@ export class LoginComponent {
       localStorage.setItem('userid', userid)
 
 
-      this.router.navigate(['user/dashboard'])
+      this.router.navigate([`user/dashboard/${userid}`])
       console.log("token",jwTtoken)
       // console.log(firstName)
       // console.log(data)

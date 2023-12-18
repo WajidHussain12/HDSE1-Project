@@ -178,6 +178,8 @@ export class EditVarietiesComponent {
 
   updateVariety(data: any) {
     this.requestService.updateVarietyData(this.varietyID, data).subscribe((data) => {
+      this.toastr.warning("Variety Edited")
+      this.route.navigate(['/admin/varieties'])
       console.log(data)
     });
   }

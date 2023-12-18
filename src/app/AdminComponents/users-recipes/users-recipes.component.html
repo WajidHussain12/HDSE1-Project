@@ -33,20 +33,20 @@
                 <div *ngFor="let i of RecipesData" class="col-sm-4 mb-3 mb-sm-0 px-3"
                   style="border-radius: 10px; margin-top: 20px;text-align: center;">
                   <div class="card">
-                    <div *ngIf="i.image" class="image-container">
+                    <!-- <div *ngIf="i.image" class="image-container">
                       <img [src]="i.image" class="card-img-top" alt="..." [style.height.px]="304" />
-                    </div>
+                    </div> -->
 
                     <!-- <img src={{i.image}} class="card-img-top" alt="..." /> -->
                     <div class="card-body">
                       <h4 class="card-title">
                         <h4>Recipe Name:</h4>
                       </h4>
-                      <h6>{{i.Recipe_Name}}</h6>
+                      <h6>{{i.recipe_Name}}</h6>
                       <!-- <h4>Instructions:</h4> -->
                       <!-- Inside *ngFor loop -->
                       <!-- <div class="card-text1" id="minCard">{{i.Instructions}}</div> -->
-                      <button type="button" (click)="showMore(i.id)" class="btn btn-primary" data-bs-toggle="modal"
+                      <button type="button" (click)="showMore(i.userRecipeid)" class="btn btn-primary" data-bs-toggle="modal"
                         data-bs-target="#staticBackdrop">
                         Show More
                       </button>
@@ -54,19 +54,19 @@
                       <div class="show-more" (click)="showMore(i.id)">Show More</div> -->
                     </div>
                     <ul class="list-group list-group-flush">
-                      <li class="list-group-item"><strong>User Name:</strong> {{i.Author_Name}}</li>
-                      <li class="list-group-item"><strong>Recipe ID:</strong> {{i.id}}</li>
+                      <li class="list-group-item"><strong>User Name:</strong> {{i.author_Name}}</li>
+                      <li class="list-group-item"><strong>Recipe ID:</strong> {{i.userRecipeid}}</li>
                     </ul>
                     <div class="card-body" style="display: flex; justify-content: center;">
-
+<!--
                       <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1"
-                        (click)="getUserRecipeId(i.id)" style="margin-right: 10px;">Add To Menu</a>
+                        (click)="getUserRecipeId(i.userRecipeid)" style="margin-right: 10px;">Add To Menu</a> -->
 
                       <a class="btn btn-warning" style="margin-right: 10px;" data-bs-toggle="modal" data-bs-target="#exampleModal2"
-                      (click)="getUserRecipeId(i.id)">Add To Winner</a>
+                      (click)="getUserRecipeId(i.userRecipeid)">Add To Winner</a>
 
                       <a class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                        (click)="getDeleteId(i.id)">Delete Recipe</a>
+                        (click)="getDeleteId(i.userRecipeid)">Delete Recipe</a>
 
                     </div>
                   </div>
@@ -100,9 +100,9 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <ng-container *ngIf="image">
+        <!-- <ng-container *ngIf="image">
           <img [src]="[image]" class="card-img-top" alt="..." [style.height.px]="304" />
-        </ng-container>
+        </ng-container> -->
         <h4>Instructions</h4>
         <p>{{Instructions}}</p>
         <ul class="list-group list-group-flush">
@@ -164,7 +164,7 @@
 
 
 <!-- Add To Menu Model -->
-
+<!-- 
 <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -200,7 +200,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
 
 
 

@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Block } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import 'bootstrap';
@@ -19,10 +20,18 @@ declare global {
   styleUrls: ['./usersidebar.component.css']
 })
 export class UsersidebarComponent implements OnInit {
+
+  constructor(private ActivatedRoute: ActivatedRoute) {
+    this.getUserId()
+
+  }
+
   menu: any;
   animate: boolean;
 
   UserName: any
+
+
   ngOnInit() {
     if (window.Helpers) {
       window.Helpers.setAutoUpdate(true);
@@ -30,12 +39,6 @@ export class UsersidebarComponent implements OnInit {
 
     var userName: any = localStorage.getItem("UserName")
     this.UserName = userName
-
-
-
-
-
-
 
 
 
@@ -55,7 +58,18 @@ export class UsersidebarComponent implements OnInit {
     }
 
     Helpers.setCollapsed(true, false);
+
   }
+
+  userid: any
+  private getUserId() {
+    this.ActivatedRoute.params.subscribe((data: any) => {
+      const userid = data['id']
+      this.userid = userid
+      console.log("param data ",userid)
+    })
+  }
+
 
   private initializeMenu() {
     const layoutMenuEls = document.querySelectorAll('#layout-menu') as NodeListOf<Element>;

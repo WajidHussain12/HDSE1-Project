@@ -18,7 +18,6 @@ export class UsersRecipesComponent implements OnInit {
   }
 
 
-  image: any;
   Recipe_Name: any;
   Ingredients: any;
   Instructions: any;
@@ -39,19 +38,14 @@ export class UsersRecipesComponent implements OnInit {
     // console.log(id);
     this.requestService.getSingleUserRecipeAllData(id).subscribe((data) => {
       var i: any = data;
-
-      this.image = i['image'],
-        this.Recipe_Name = i['Recipe_Name'],
-        this.Ingredients = i['Ingredients'],
-        this.Instructions = i['Instructions'],
-        this.Cooking_Time = i['Cooking_Time'],
-        this.RecipeID = i['id']
-      this.UserID = i['Author_ID']
-      this.UserName = i['Author_Name']
-      this.Calories = i['Calories']
-      this.Rating = i['Rating']
-      this.Status = i['Status']
-
+        this.Recipe_Name = i['recipe_Name'],
+        this.Ingredients = i['ingredients'],
+        this.Instructions = i['instructions'],
+        this.Cooking_Time = i['cooking_Time'],
+        this.RecipeID = i['userRecipeid']
+      this.UserID = i['author_ID']
+      this.UserName = i['author_Name']
+      this.Calories = i['calories']
     });
   }
 
@@ -66,6 +60,7 @@ export class UsersRecipesComponent implements OnInit {
   requesrRepipesData() {
     this.requestService.getuserrecipesData().subscribe((data) => {
       this.RecipesData = data;
+      console.log(data)
     });
 
   }
@@ -86,8 +81,8 @@ export class UsersRecipesComponent implements OnInit {
   getDeleteUserName(Deleteid: number) {
     this.requestService.GetuserdeleteRecipe(Deleteid).subscribe((data) => {
       var d: any = data;
-      this.RecipeName = d['Recipe_Name']
-      this.AuthorName = d['Author_Name']
+      this.RecipeName = d['recipe_Name']
+      this.AuthorName = d['author_Name']
     });
   }
 
@@ -102,6 +97,7 @@ export class UsersRecipesComponent implements OnInit {
   ConfirmDelete() {
     this.DeleteRecipe(this.RecipeId);
     this.showerror();
+    this.ngOnInit()
   }
 
   showerror() {
@@ -118,55 +114,54 @@ export class UsersRecipesComponent implements OnInit {
   userRecipeAuthorName: any
 
   getUserRecipeId(id: any) {
-    this.requestService.get_SingleUserRecipeData_ById(id).subscribe((data: any) => {
-      this.userRecipeId = data['id']
-      this.userRecipeName = data['Recipe_Name']
-      this.userRecipeAuthorId = data['Author_ID']
-      this.userRecipeAuthorName = data['Author_Name']
+    this.requestService.getSingleUserRecipeAllData(id).subscribe((data: any) => {
+      this.userRecipeId = data['userRecipeid']
+      this.userRecipeName = data['recipe_Name']
+      this.userRecipeAuthorId = data['author_ID']
+      this.userRecipeAuthorName = data['author_Name']
     })
   }
 
 
-  ConfirmAddToMenu() {
-    this.requestService.get_AddToMenu_SingleUserRecipeData_ById(this.userRecipeId).subscribe((data: any) => {
-      var addToMenuForm = this.FormBuilder.group({
-        Author_ID: [data['Author_ID']],
-        Recipe_Name: [data['Recipe_Name']],
-        Author_Name: [data['Author_Name']],
-        Ingredients: [data['Ingredients']],
-        Instructions: [data['Instructions']],
-        Cooking_Time: [data['Cooking_Time']],
-        Calories: [data['Calories']],
-        Rating: [data['0']],
-        Status: [data['Status']],
-        image: [data['image']],
-      })
+  // ConfirmAddToMenu() {
+  //   this.requestService.get_AddToMenu_SingleUserRecipeData_ById(this.userRecipeId).subscribe((data: any) => {
+  //     var addToMenuForm = this.FormBuilder.group({
+  //       Author_ID: [data['Author_ID']],
+  //       Recipe_Name: [data['Recipe_Name']],
+  //       Author_Name: [data['Author_Name']],
+  //       Ingredients: [data['Ingredients']],
+  //       Instructions: [data['Instructions']],
+  //       Cooking_Time: [data['Cooking_Time']],
+  //       Calories: [data['Calories']],
+  //       Rating: [data['0']],
+  //       Status: [data['Status']],
+  //       image: [data['image']],
+  //     })
 
-      this.requestService.addGetedDataintoMenu(addToMenuForm.value).subscribe((data) => {
-        this.toastr.success('User Recipe Added To Menu!');
-      })
-    })
-  }
+  //     this.requestService.addGetedDataintoMenu(addToMenuForm.value).subscribe((data) => {
+  //       this.toastr.success('User Recipe Added To Menu!');
+  //     })
+  //   })
+  // }
 
 
   ConfirmAddToWinner(){
-    this.requestService.get_AddToMenu_SingleUserRecipeData_ById(this.userRecipeId).subscribe((data: any) => {
+    this.requestService.getSingleUserRecipeAllData(this.userRecipeId).subscribe((data: any) => {
       var addToMenuForm = this.FormBuilder.group({
 
-        Author_ID: [data['Author_ID']],
-        Recipe_Name: [data['Recipe_Name']],
-        Author_Name: [data['Author_Name']],
-        Ingredients: [data['Ingredients']],
-        Instructions: [data['Instructions']],
-        Cooking_Time: [data['Cooking_Time']],
-        Calories: [data['Calories']],
-        Rating: [data['0']],
-        Status: [data['Status']],
-        image: [data['image']],
+        author_ID: [data['author_ID']],
+        recipe_Name: [data['recipe_Name']],
+        author_Name: [data['author_Name']],
+        ingredients: [data['ingredients']],
+        instructions: [data['instructions']],
+        cooking_Time: [data['cooking_Time']],
+        calories: [data['calories']],
       })
+
 
       this.requestService.addrecipeWinner(addToMenuForm.value).subscribe((data) => {
         this.toastr.warning('Recipe Added To Winner List!');
+        console.log(data)
       })
     })
 

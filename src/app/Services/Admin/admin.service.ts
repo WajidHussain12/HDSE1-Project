@@ -16,8 +16,9 @@ export class AdminService {
   userApi: string = "https://localhost:7168/api/AdminUserAPI";
   recipesApi: string = "https://localhost:7168/api/AdminRecipeAPI";
   booksApi: string = "https://localhost:7168/api/AdminBookAPI";
-  usersRecipesApi: string = " http://localhost:3000/usersRecipes";
-  recipeWinnerApi: string = " http://localhost:3000/recipeWinners";
+  usersRecipesApi: string = "https://localhost:7168/api/AdminUserRecipeAPI";
+
+  recipeWinnerApi: string = "https://localhost:7168/api/AdminRecipeWinnerAPI";
   varietyapi: string = "https://localhost:7168/api/AdminVarietyAPI";
   // varietyapiGetWithRecipes: string = "https://localhost:7168/api/AdminVarietyAPI/GetVarietiesDataWithRecipes";
   // addVarityApi: string = "https://localhost:7168/api/AdminVarietyAPI";
@@ -172,7 +173,7 @@ export class AdminService {
 
   //AddBook Method
 
-  addbook(data: FormData): Observable<any>{
+  addbook(data: FormData): Observable<any> {
     return this.request.post(this.booksApi, data)
   }
 
@@ -185,6 +186,10 @@ export class AdminService {
 
   addrecipeWinner(data: any) {
     return this.request.post(this.recipeWinnerApi, data)
+  }
+
+  deleteWinner(id: Number) {
+    return this.request.delete(`${this.recipeWinnerApi}/${id}`)
   }
 
 

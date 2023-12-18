@@ -19,6 +19,8 @@ export class ProductService {
 
   public getuserDataApi: string = "https://localhost:7168/api/UserGetApi"
 
+  addUserRecipeAPI: string = "https://localhost:7168/api/UserAddRecipeAPI"
+
 
   changeCart: any = 0
 
@@ -86,6 +88,10 @@ export class ProductService {
     return this.http.get(`${this.getuserDataApi}/${id}`)
   }
 
+
+  add_User_Recipe(recipe: any) {
+    return this.http.post(this.addUserRecipeAPI, recipe)
+  }
 
 }
 

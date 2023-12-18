@@ -1,0 +1,23 @@
+.menu-item {
+  cursor: pointer;
+}
+
+
+
+.bg-danger {
+  --bs-bg-opacity: 1;
+  background-color: red !important;
+}
+
+
+
+.customdashboard {
+  /* color: #696cff; */
+  background-color: rgba(105, 108, 255, 0.16) !important;
+}
+
+
+.customdcolor {
+  color: #696cff;
+
+}

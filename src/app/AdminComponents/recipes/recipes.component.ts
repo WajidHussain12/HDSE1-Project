@@ -204,12 +204,12 @@ export class RecipesComponent {
     this.requestService.DeleteRecipe(id).subscribe((data) => {
       console.log("Recipe Deleted", data)
       this.ngOnInit()
+      this.showerror();
     });
   }
 
   ConfirmDelete() {
     this.DeleteRecipe(this.RecipeId);
-    this.showerror();
   }
 
   showerror() {

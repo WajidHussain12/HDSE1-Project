@@ -30,16 +30,16 @@
             </thead>
             <tbody class="table-border-bottom-0" *ngFor="let winner of recipeWinnerData">
               <tr>
-                <!-- <td>{{winner}}</td> -->
-                <td>{{winner.Author_ID}}</td>
-                <td>{{winner.Recipe_Name}}</td>
-                <td>{{winner.Author_Name}}</td>
+                <td>{{winner.winnerRecipeid}}</td>
+                <td>{{winner.author_ID}}</td>
+                <td>{{winner.recipe_Name}}</td>
+                <td>{{winner.author_Name}}</td>
                 <td>
                   <div class="dropdown">
                     <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
                       <i class="mdi mdi-dots-vertical"></i>
                     </button>
-                    <div class="dropdown-menu">
+                    <div class="dropdown-menu" (click)="deleteWinner(winner.winnerRecipeid)">
                       <div class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"
                         style="margin-bottom: 5px;display: flex; justify-content: center; align-items: center; cursor: pointer;">
                         <span style="color:Red; margin-right: 5px;" class="material-symbols-outlined">
@@ -48,13 +48,13 @@
                         <a>Delete</a>
                       </div>
 
-                      <div class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                      <!-- <div class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
                         style="margin-bottom: 5px;display: flex; justify-content: center; align-items: center; cursor: pointer;">
                         <span style="color:Red; margin-right: 5px;" class="material-symbols-outlined">
                           expand_more
                         </span>
                         <a>Show More</a>
-                      </div>
+                      </div> -->
                     </div>
                   </div>
                 </td>

@@ -11,14 +11,23 @@ export class SelectedRecipesComponent {
   constructor(private requestService: AdminService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
-
+    this.getWinnerUserData()
   }
 
   recipeWinnerData: any
 
   getWinnerUserData() {
     this.requestService.getRecipeWinnerallData().subscribe((data: any) => {
+      console.log(data)
       this.recipeWinnerData = data
+    });
+  }
+
+  deleteWinner(id: any) {
+    this.requestService.deleteWinner(id).subscribe((data:any)=>{
+      console.log(data)
+      this.toastr.error("Winner Recipe Deleted")
+      this.ngOnInit()
     });
   }
 
